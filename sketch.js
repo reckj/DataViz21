@@ -5,10 +5,15 @@ let screenWidth = 3840;
 let screenHeight = 2160;
 let screenScaler = 2; //scaler for work on smaller screens
 
+const hammerPlayground = document.getElementById('hammer');
+const hammerOptions = {};
+const mc = new Hammer(hammerPlayground, hammerOptions);
+
+
 function setup() {
   //createCanvas(window.innerWidth, window.innerHeight);
   createCanvas(screenWidth/screenScaler, screenHeight/screenScaler);
-  background(0);
+  background(255);
   textSize(22);
 
   /*
@@ -21,6 +26,10 @@ function setup() {
 
 
 function draw() {
+  mc.on('singletap doubletap', (event) => {
+    //hammerPlayground.textContent = event.type + ' ';
+    console.log('event: ', event);
+  });
   
 }
 
