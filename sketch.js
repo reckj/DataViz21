@@ -1,4 +1,4 @@
-let screenScaler = 2; //scaler for work on smaller screens
+let screenScaler = 4; //scaler for work on smaller screens
 let screenWidth = 3840 / screenScaler;
 let screenHeight = 2160 / screenScaler;
 
