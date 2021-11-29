@@ -1,4 +1,4 @@
-let screenScaler = 4; //scaler for work on smaller screens
+let screenScaler = 2; //scaler for work on smaller screens
 let screenWidth = 3840 / screenScaler;
 let screenHeight = 2160 / screenScaler;
 
@@ -10,6 +10,25 @@ let touchColor = 0;
 let ringRadius1 = screenWidth * 4 / 10;
 let ringRadius2 = screenWidth * 6 / 10;
 let ringRadius3 = screenWidth * 8 / 10;
+
+//Objectbuilderfunction
+function objectBuilderFunction(name, posX, posY, sizeX, sizeY, color, state){
+  const name = {
+    posX,
+    posY,
+    sizeX,
+    sizeY,
+    color,
+    state,
+  }
+}
+
+//OBJECTS FOR MAIN ELEMENTS
+//ContentObjects
+//ServerObjects
+//AgentObjects
+//personalCounterObjects
+//globalCounterObjects
 
 let serverObject = {
   sizeX: screenWidth * 9 / 10,
@@ -89,4 +108,24 @@ function touchMoved() {
   else{
     serverObject.color[3] = 0;
   }
+}
+
+
+function checkObjectCollision(object) {
+  //check if mouse/touch is over object
+}
+
+function animatedMovement(startposition, endposition, speed, movementType) {
+  //startposition
+  //endposition
+  //speed -> animationspeed
+  //movementTypes -> arc, line, bezier
+}
+
+function highlightObject(object) {
+  //highlight animation of object
+}
+
+function disappearingObject(object) {
+  //make a object dissappear though animation
 }
