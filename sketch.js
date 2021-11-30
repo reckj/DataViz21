@@ -1,135 +1,131 @@
+let screenScaler = 2; //scaler for work on smaller screens
+let screenWidth = 3840 / screenScaler;
+let screenHeight = 2160 / screenScaler;
 
+let interActionAreaWidth = screenWidth / 3;
+let interActionAreaHeight = screenHeight / 8;
 
-//using data from https://api.v2.emissions-api.org/ui/#/default/emissionsapi.web.get_average
+let touchColor = 0;
 
-const api_url = 'https://covid19-api.com/country/code?code=CH&format=json'
+let ringRadius1 = screenWidth * 4 / 10;
+let ringRadius2 = screenWidth * 6 / 10;
+let ringRadius3 = screenWidth * 8 / 10;
 
-
-var user_data;
-let circleSize = 0;
-
-function preload() {
-  //uncomment this to do the same using fetch() API
-  /*
-  fetch(api_url)
-    .then(response => response.json())
-    .then(data => {
-    for (let avg of data){
-      avgCo2.push(avg.average.toPrecision(4));
-      startDate.push(avg.start.substring(0, 10));
-    
-      }
-   
-})
-*/
+//Objectbuilderfunction
+function objectBuilderFunction(name, posX, posY, sizeX, sizeY, color, state){
+  const name = {
+    posX,
+    posY,
+    sizeX,
+    sizeY,
+    color,
+    state,
+  }
 }
+
+//OBJECTS FOR MAIN ELEMENTS
+//ContentObjects
+//ServerObjects
+//AgentObjects
+//personalCounterObjects
+//globalCounterObjects
+
+let serverObject = {
+  sizeX: screenWidth * 9 / 10,
+  sizeY: screenHeight * 4 / 10,
+  posX: screenWidth / 2,
+  posY: screenHeight * 6 / 10,
+  color: [0, 0, 0, 0],
+}
+
+let contentObject1 = {
+  sizeX: 50,
+  sizeY: 50,
+  posX: screenWidth / 2,
+  posY: screenHeight - 50,
+};
+
+
 
 function setup() {
-  createCanvas(window.innerWidth, window.innerHeight);
-  background(125);
+  //createCanvas(window.innerWidth, window.innerHeight);
+  createCanvas(screenWidth, screenHeight);
+  let backgroundColor = color('#495773');
+  background(backgroundColor);
   textSize(22);
-  ctx = document.getElementById('co2_CH').getContext('2d');
-
-  httpGet(api_url, 'json', false, function (response) {
-    user_data = response;
-    //drawOnce();
-  });
+  
 }
 
-function drawOnce() {
-  console.log(user_data);
-  //fill(0);
-  //text(user_data[0].deaths, width/2, height/2);
-  console.log(user_data[0].deaths);
-}
 
 function draw() {
-  if(!user_data){
-    return;
-  }
-
-  if(circleSize < 400){
-    circleSize = circleSize + 1;
-  }
-  else {
-    circleSize = 0;
-    clear();
-    background(125);
-  }
-
-  //fill(10);
-  //circle(width/2,height/2,circleSize + 50);
-  fill(0);
-  circle(width/2,height/2,circleSize);
-  fill(255);
-  textSize(circleSize/2);
-  textAlign(CENTER, CENTER);
-  text(user_data[0].deaths, width/2, height/2);
-
- /*
-  if (!user_data) {
-    // Wait until the data has loaded before drawing.
-    return;
-  }
-
-
+  clear();
+  let backgroundColor = color('#495773');
+  background(backgroundColor);
+  noStroke();
   
+  let ringColor3 = color('#8C1822');
+  fill(ringColor3);
+  circle(width/2, height, ringRadius3);
 
-  
-  
-  for (let avg of user_data) {
-    avgCo2.push(avg.average.toPrecision(4));
-    startDate.push(avg.start.substring(0, 10));
+  let ringColor2 = color('#BF2A37');
+  fill(ringColor2);
+  circle(width/2, height, ringRadius2);
 
+  let ringColor1 = color('#F22929');
+  fill(ringColor1);
+  circle(width/2, height, ringRadius1);
 
+  let c = color(0, 0, 0);
+  fill(c);
+  rectMode(CENTER);
+  rect(width/2, height - interActionAreaHeight/2, interActionAreaWidth, interActionAreaHeight);
+
+  let contentObject1Color = color('#141640');
+  fill(contentObject1Color)
+  rectMode(CENTER);
+  rect(contentObject1.posX, contentObject1.posY, contentObject1.sizeX, contentObject1.sizeY);
+
+  fill(serverObject.color);
+  rectMode(CENTER);
+  rect(serverObject.posX, serverObject.posY, serverObject.sizeX, serverObject.sizeY);
+}
+
+function touchMoved() {
+  console.log('mouseY: ' + mouseY);
+  if((mouseX > contentObject1.posX - contentObject1.sizeX / 2) &&
+  (mouseX < contentObject1.posX + contentObject1.sizeX / 2) &&
+  (mouseY > contentObject1.posY - contentObject1.sizeY / 2) &&
+  (mouseY < contentObject1.posY + contentObject1.sizeY / 2))
+  {
+    contentObject1.posX = mouseX;
+    contentObject1.posY = mouseY;
+
+    serverObject.color[3] = 40;
+    if(mouseY < serverObject.posY + serverObject.sizeY / 2){
+      serverObject.color[3] = 80;
+    }
   }
-
-  
-  const data = {
-    labels: startDate,
-    datasets: [{
-      label: 'Switzerland',
-      data: avgCo2,
-      fill: false,
-      borderColor: 'rgb(75, 192, 192)',
-      tension: 0.1
-    }]
-  };
-
-  
-  if (!lineChart) {
-
-    lineChart = new Chart(ctx, {
-      type: 'line',
-      data: data,
-      options: {
-        scales: {
-          y: {
-            stacked: true,
-            title: {
-              color: 'red',
-              display: true,
-              text: 'carbon monoxide [mol/m²]',
-            }
-          },
-          x: {
-            display: true,
-            title: {
-              color: 'red',
-              display: true,
-              text: 'date',
-            }
-          }
-        }
-      }
-    });
-    
+  else{
+    serverObject.color[3] = 0;
   }
-  */
-
-
-
-
 }
 
 
+function checkObjectCollision(object) {
+  //check if mouse/touch is over object
+}
+
+function animatedMovement(startposition, endposition, speed, movementType) {
+  //startposition
+  //endposition
+  //speed -> animationspeed
+  //movementTypes -> arc, line, bezier
+}
+
+function highlightObject(object) {
+  //highlight animation of object
+}
+
+function disappearingObject(object) {
+  //make a object dissappear though animation
+}
