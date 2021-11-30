@@ -1,4 +1,4 @@
-let screenScaler = 2; //scaler for work on smaller screens
+let screenScaler = 4; //scaler for work on smaller screens
 let screenWidth = 3840 / screenScaler;
 let screenHeight = 2160 / screenScaler;
 
@@ -12,6 +12,7 @@ let ringRadius2 = screenWidth * 6 / 10;
 let ringRadius3 = screenWidth * 8 / 10;
 
 //Objectbuilderfunction
+/*
 function objectBuilderFunction(name, posX, posY, sizeX, sizeY, color, state){
   const name = {
     posX,
@@ -22,6 +23,7 @@ function objectBuilderFunction(name, posX, posY, sizeX, sizeY, color, state){
     state,
   }
 }
+*/
 
 //OBJECTS FOR MAIN ELEMENTS
 //ContentObjects
@@ -58,6 +60,7 @@ function setup() {
 
 
 function draw() {
+
   clear();
   let backgroundColor = color('#495773');
   background(backgroundColor);
