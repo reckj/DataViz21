@@ -1,7 +1,5 @@
-/*
-import {test, testfunction} from './objects';
 console.log(test);
-testfunction();*/
+testfunction();
 
 let screenScaler = 4; //scaler for work on smaller screens
 let screenWidth = 3840 / screenScaler;
@@ -54,11 +52,10 @@ let contentObject1 = {
 }
 
 
-
 function setup() {
   //createCanvas(window.innerWidth, window.innerHeight);
   createCanvas(screenWidth, screenHeight);
-  let backgroundColor = color('#495773');
+  let backgroundColor = color(0, 0, 0, 0);
   background(backgroundColor);
   textSize(22);
   
@@ -66,12 +63,10 @@ function setup() {
   screenObjects.push(objectBuilder('testobject', 1,2,2,2,[2,2,2,2],'active'));
   screenObjects.push(objectBuilder('testobject2', 1,2,2,2,[2,2,2,2],'passive'));
   console.log(screenObjects.find(element => element.name === 'testobject2'));
-  
 }
 
 
 function draw() {
-
   clear();
   let backgroundColor = color('#495773');
   background(backgroundColor);
@@ -102,6 +97,12 @@ function draw() {
   fill(serverObject.color);
   rectMode(CENTER);
   rect(serverObject.posX, serverObject.posY, serverObject.sizeX, serverObject.sizeY);
+
+ /*
+  var svg = document.getElementById('svg-object');
+  svg.style.height = '450px';
+  svg.style.zIndex = '10000';
+ */
 }
 
 function touchMoved() {
