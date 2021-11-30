@@ -1,3 +1,5 @@
+
+
 let screenScaler = 4; //scaler for work on smaller screens
 let screenWidth = 3840 / screenScaler;
 let screenHeight = 2160 / screenScaler;
@@ -56,6 +58,7 @@ function setup() {
   background(backgroundColor);
   textSize(22);
   
+  
 }
 
 
@@ -94,7 +97,7 @@ function draw() {
 }
 
 function touchMoved() {
-  console.log('mouseY: ' + mouseY);
+
   if((mouseX > contentObject1.posX - contentObject1.sizeX / 2) &&
   (mouseX < contentObject1.posX + contentObject1.sizeX / 2) &&
   (mouseY > contentObject1.posY - contentObject1.sizeY / 2) &&
