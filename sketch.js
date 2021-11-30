@@ -1,4 +1,7 @@
-
+/*
+import {test, testfunction} from './objects';
+console.log(test);
+testfunction();*/
 
 let screenScaler = 4; //scaler for work on smaller screens
 let screenWidth = 3840 / screenScaler;
@@ -14,8 +17,8 @@ let ringRadius2 = screenWidth * 6 / 10;
 let ringRadius3 = screenWidth * 8 / 10;
 
 //Objectbuilderfunction
-/*
-function objectBuilderFunction(name, posX, posY, sizeX, sizeY, color, state){
+
+function objectBuilderFunction(handle, posX, posY, sizeX, sizeY, color, state){
   const name = {
     posX,
     posY,
@@ -24,8 +27,9 @@ function objectBuilderFunction(name, posX, posY, sizeX, sizeY, color, state){
     color,
     state,
   }
+  console.log(name);
 }
-*/
+
 
 //OBJECTS FOR MAIN ELEMENTS
 //ContentObjects
@@ -58,6 +62,8 @@ function setup() {
   background(backgroundColor);
   textSize(22);
   
+  objectBuilderFunction('testobject', 1,2,2,2,[2,2,2,2],'active');
+  //console.log(testobject);
   
 }
 
