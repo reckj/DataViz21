@@ -17,9 +17,10 @@ let ringRadius2 = screenWidth * 6 / 10;
 let ringRadius3 = screenWidth * 8 / 10;
 
 //Objectbuilderfunction
+const screenObjects = [];
 
-function objectBuilderFunction(handle, posX, posY, sizeX, sizeY, color, state){
-  const name = {
+const objectBuilder = (name, posX, posY, sizeX, sizeY, color, state) => ({
+    name,
     posX,
     posY,
     sizeX,
@@ -27,8 +28,7 @@ function objectBuilderFunction(handle, posX, posY, sizeX, sizeY, color, state){
     color,
     state,
   }
-  console.log(name);
-}
+);
 
 
 //OBJECTS FOR MAIN ELEMENTS
@@ -51,7 +51,7 @@ let contentObject1 = {
   sizeY: 50,
   posX: screenWidth / 2,
   posY: screenHeight - 50,
-};
+}
 
 
 
@@ -62,8 +62,10 @@ function setup() {
   background(backgroundColor);
   textSize(22);
   
-  objectBuilderFunction('testobject', 1,2,2,2,[2,2,2,2],'active');
-  //console.log(testobject);
+  //generate objects
+  screenObjects.push(objectBuilder('testobject', 1,2,2,2,[2,2,2,2],'active'));
+  screenObjects.push(objectBuilder('testobject2', 1,2,2,2,[2,2,2,2],'passive'));
+  console.log(screenObjects.find(element => element.name === 'testobject2'));
   
 }
 
