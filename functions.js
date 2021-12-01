@@ -29,10 +29,10 @@ function drawMainEnvironment() {
     drawMediaObject(screenObjects.find(element => element.name === 'mediaObjectText'));
     drawMediaObject(screenObjects.find(element => element.name === 'mediaObjectVoice'));
 
-    drawAvatarObject(screenObjects.find(element => element.name === 'avatarObjectPerson1'));
-    drawAvatarObject(screenObjects.find(element => element.name === 'avatarObjectPerson2'));
-    drawAvatarObject(screenObjects.find(element => element.name === 'avatarObjectPerson3'));
-    drawAvatarObject(screenObjects.find(element => element.name === 'avatarObjectPerson4'));
+    drawAvatarPersonObject(screenObjects.find(element => element.name === 'avatarObjectPerson1'));
+    drawAvatarPersonObject(screenObjects.find(element => element.name === 'avatarObjectPerson2'));
+    drawAvatarPersonObject(screenObjects.find(element => element.name === 'avatarObjectPerson3'));
+    drawAvatarPersonObject(screenObjects.find(element => element.name === 'avatarObjectPerson4'));
 }
 
 function drawMainScreen() {

@@ -12,13 +12,21 @@ function drawMediaObject(object) {
 }
 
 //gets Avatar Object to be drawn
-function drawAvatarObject(object) {
+function drawAvatarPersonObject(object) {
     //draw Avatar Object based on object parameters
 
     //start with Circle wireframe style as placeholder
     fill(avatarColor);
     noStroke();
     circle(object.pos[0] + object.size[0], object.pos[1] + object.size[0], object.size[0], object.size[1]);
+}
+
+function drawAvatarGroupObject(object) {
+
+}
+
+function drawAvatarWorldObject(object) {
+
 }
 
 function drawGrid(){
