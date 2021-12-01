@@ -25,34 +25,7 @@ const dataObjectBuilder = (name, totalData, travel, charges, food) => ({
     food
   }
 );
-/*
-//generate all screen objects
-screenObjects.push(screenObjectBuilder('testobject', [1,2], [30,50], 'screenname', 394));
 
-screenObjects.push(screenObjectBuilder('mediaObjectImage', [1520,1840], [160,160], 'Image', 5));
-screenObjects.push(screenObjectBuilder('mediaObjectVideo', [1760,1840], [160,160], 'Video', 250));
-screenObjects.push(screenObjectBuilder('mediaObjectText', [2000,1840], [160,160], 'Text', 0.1));
-screenObjects.push(screenObjectBuilder('mediaObjectVoice', [2240,1840], [160,160], 'Voice', 1));
-
-screenObjects.push(screenObjectBuilder('receiverObjectPerson1', [400,1360], [160,160], 'Mica', 1));
-screenObjects.push(screenObjectBuilder('receiverObjectPerson2', [1440,1360], [160,160], 'Elena', 1));
-screenObjects.push(screenObjectBuilder('receiverObjectPerson3', [2640,1360], [160,160], 'Johannes', 1));
-screenObjects.push(screenObjectBuilder('receiverObjectPerson4', [3360,1360], [160,160], 'Janosch', 1));
-screenObjects.push(screenObjectBuilder('receiverObjectSmallGroup1', [2800,560], [240,240], 'Family', 5));
-screenObjects.push(screenObjectBuilder('receiverObjectSmallGroup2', [1280,640], [240,240], 'Friends', 8));
-screenObjects.push(screenObjectBuilder('receiverObjectBigGroup1', [640,400], [320,320], 'Jahrgang', 56));
-screenObjects.push(screenObjectBuilder('receiverObjectBigGroup2', [2240,320], [320,320], 'Fussballmannschaft', 24));
-screenObjects.push(screenObjectBuilder('receiverObjectWorld', [0,0], [3840,240], 'Social Media', 999));
-
-screenObjects.push(screenObjectBuilder('emissionObjectEnergy', [0,240], [480,480], 'Energieverbrauch', 100));
-screenObjects.push(screenObjectBuilder('emissionObjectWater', [3360,0], [480,480], 'Wasserverbrauch', 100));
-screenObjects.push(screenObjectBuilder('emissionObjectLand', [3360,1680], [480,480], 'Landverbrauch', 100));
-
-screenObjects.push(screenObjectBuilder('serverObjectLand', [160,1120], [3520,320], ' Internet Traffic', 0));
-
-//test screen objects
-console.log(screenObjects.find(element => element.name === 'receiverObjectSmallGroup1'));
-*/
 //generate all screen objects
 screenObjects.push(screenObjectBuilder('testobject', [1,2], [30,50], 'screenname', 394));
 
@@ -61,19 +34,21 @@ screenObjects.push(screenObjectBuilder('mediaObjectVideo', [(screenWidth * (22/4
 screenObjects.push(screenObjectBuilder('mediaObjectText', [(screenWidth * (25/48)),(screenHeight * (23/27))], [(screenWidth * (2/48)),(screenHeight * (2/27))], 'Text', 0.1));
 screenObjects.push(screenObjectBuilder('mediaObjectVoice', [(screenWidth * (28/48)),(screenHeight * (23/27))], [(screenWidth * (2/48)),(screenHeight * (2/27))], 'Voice', 1));
 
-screenObjects.push(screenObjectBuilder('receiverObjectPerson1', [400,1360], [160,160], 'Mica', 1));
-screenObjects.push(screenObjectBuilder('receiverObjectPerson2', [1440,1360], [160,160], 'Elena', 1));
-screenObjects.push(screenObjectBuilder('receiverObjectPerson3', [2640,1360], [160,160], 'Johannes', 1));
-screenObjects.push(screenObjectBuilder('receiverObjectPerson4', [3360,1360], [160,160], 'Janosch', 1));
-screenObjects.push(screenObjectBuilder('receiverObjectSmallGroup1', [2800,560], [240,240], 'Family', 5));
-screenObjects.push(screenObjectBuilder('receiverObjectSmallGroup2', [1280,640], [240,240], 'Friends', 8));
-screenObjects.push(screenObjectBuilder('receiverObjectBigGroup1', [640,400], [320,320], 'Jahrgang', 56));
-screenObjects.push(screenObjectBuilder('receiverObjectBigGroup2', [2240,320], [320,320], 'Fussballmannschaft', 24));
-screenObjects.push(screenObjectBuilder('receiverObjectWorld', [0,0], [3840,240], 'Social Media', 999));
+screenObjects.push(screenObjectBuilder('receiverObjectPerson1', [(screenWidth * (5/48)),(screenHeight * (17/27))], [(screenWidth * (2/48)),(screenHeight * (2/27))], 'Mica', 1));
+screenObjects.push(screenObjectBuilder('receiverObjectPerson2', [(screenWidth * (18/48)),(screenHeight * (17/27))], [(screenWidth * (2/48)),(screenHeight * (2/27))], 'Elena', 1));
+screenObjects.push(screenObjectBuilder('receiverObjectPerson3', [(screenWidth * (33/48)),(screenHeight * (17/27))], [(screenWidth * (2/48)),(screenHeight * (2/27))], 'Johannes', 1));
+screenObjects.push(screenObjectBuilder('receiverObjectPerson4', [(screenWidth * (42/48)),(screenHeight * (17/27))], [(screenWidth * (2/48)),(screenHeight * (2/27))], 'Janosch', 1));
+screenObjects.push(screenObjectBuilder('receiverObjectSmallGroup1', [(screenWidth * (35/48)),(screenHeight * (7/27))], [(screenWidth * (3/48)),(screenHeight * (3/27))], 'Family', 5));
+screenObjects.push(screenObjectBuilder('receiverObjectSmallGroup2', [(screenWidth * (16/48)),(screenHeight * (8/27))], [(screenWidth * (3/48)),(screenHeight * (3/27))], 'Friends', 8));
+screenObjects.push(screenObjectBuilder('receiverObjectBigGroup1', [(screenWidth * (8/48)),(screenHeight * (5/27))], [(screenWidth * (4/48)),(screenHeight * (4/27))], 'Jahrgang', 56));
+screenObjects.push(screenObjectBuilder('receiverObjectBigGroup2', [(screenWidth * (28/48)),(screenHeight * (4/27))], [(screenWidth * (4/48)),(screenHeight * (4/27))], 'Fussballmannschaft', 24));
+screenObjects.push(screenObjectBuilder('receiverObjectWorld', [(screenWidth * (0/48)),(screenHeight * (0/27))], [(screenWidth * (48/48)),(screenHeight * (3/27))], 'Social Media', 999));
 
-screenObjects.push(screenObjectBuilder('emissionObjectEnergy', [0,240], [480,480], 'Energieverbrauch', 100));
-screenObjects.push(screenObjectBuilder('emissionObjectWater', [3360,0], [480,480], 'Wasserverbrauch', 100));
-screenObjects.push(screenObjectBuilder('emissionObjectLand', [3360,1680], [480,480], 'Landverbrauch', 100));
+screenObjects.push(screenObjectBuilder('emissionObjectEnergy', [(screenWidth * (0/48)),(screenHeight * (3/27))], [(screenWidth * (6/48)),(screenHeight * (6/27))], 'Energieverbrauch', 100));
+screenObjects.push(screenObjectBuilder('emissionObjectWater', [(screenWidth * (42/48)),(screenHeight * (0/27))], [(screenWidth * (6/48)),(screenHeight * (6/27))], 'Wasserverbrauch', 100));
+screenObjects.push(screenObjectBuilder('emissionObjectLand', [(screenWidth * (42/48)),(screenHeight * (21/27))], [(screenWidth * (6/48)),(screenHeight * (6/27))], 'Landverbrauch', 100));
 
-screenObjects.push(screenObjectBuilder('serverObjectLand', [160,1120], [3520,320], ' Internet Traffic', 0));
+screenObjects.push(screenObjectBuilder('serverObjectLand', [(screenWidth * (2/48)),(screenHeight * (14/27))], [(screenWidth * (44/48)),(screenHeight * (4/27))], ' Internet Traffic', 0));
 
+//test screen objects
+console.log(screenObjects.find(element => element.name === 'receiverObjectSmallGroup1'));
