@@ -13,7 +13,7 @@ function animatedMovement(startposition, endposition, speed, movementType) {
 
 //calculate data values for all screen objects
 function calculateObjects() {
-    
+
 }
 
 //update all objects with changes resulting through new numbers or actions
@@ -35,6 +35,13 @@ function drawMainEnvironment() {
     drawAvatarPersonObject(screenObjects.find(element => element.name === 'avatarObjectPerson2'));
     drawAvatarPersonObject(screenObjects.find(element => element.name === 'avatarObjectPerson3'));
     drawAvatarPersonObject(screenObjects.find(element => element.name === 'avatarObjectPerson4'));
+
+    drawAvatarGroupObject(screenObjects.find(element => element.name === 'avatarObjectSmallGroup1'));
+    drawAvatarGroupObject(screenObjects.find(element => element.name === 'avatarObjectSmallGroup2'));
+    drawAvatarGroupObject(screenObjects.find(element => element.name === 'avatarObjectBigGroup1'));
+    drawAvatarGroupObject(screenObjects.find(element => element.name === 'avatarObjectBigGroup2'));
+
+    drawAvatarWorldObject(screenObjects.find(element => element.name === 'avatarObjectWorld'));
 }
 
 function drawMainScreen() {

@@ -2,9 +2,14 @@
 function setup() {
   //createCanvas(window.innerWidth, window.innerHeight);
   createCanvas(screenWidth, screenHeight);
-  let backgroundColor = color(100, 100, 100);
+  let backgroundColor = '#ffffff';
   background(backgroundColor);
   textSize(22);
+  
+  //for debug only
+  stroke(0);
+  strokeWeight(5);
+  rect(0, 0, screenWidth, screenHeight);
 }
 
 
