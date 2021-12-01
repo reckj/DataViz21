@@ -23,18 +23,13 @@ function drawMainScreen() {
 
 
 
-
-
-
-
-
   
   
   
-  function highlightObject(object) {
-    //highlight animation of object
-  }
-  
-  function disappearingObject(object) {
-    //make a object dissappear though animation
-  }
+function highlightObject(object) {
+//highlight animation of object
+}
+
+function disappearingObject(object) {
+//make a object dissappear though animation
+}
