@@ -1,5 +1,7 @@
 function checkObjectCollision(object) {
     //check if mouse/touch is over object
+
+    //all the things happening when touching objects
 }
 
 function animatedMovement(startposition, endposition, speed, movementType) {
@@ -7,9 +9,9 @@ function animatedMovement(startposition, endposition, speed, movementType) {
     //endposition
     //speed -> animationspeed
     //movementTypes -> arc, line, bezier
-  }
+}
 
-function updateEnvironment() {
+function calculateObjects() {
 
 }
 
@@ -17,15 +19,54 @@ function updateObjects() {
     
 }
 
+function updateMainEnvironment() {
+
+}
+
+function drawMainEnvironment() {
+
+}
+
 function drawMainScreen() {
+    updateMainEnvironment();
+    //animatedMovement();
+    drawMainEnvironment();
+}
+
+function drawInfoScreen() {
+
+}
+
+function exitInfoScreen() {
+
+}
+
+function updateComparisonEnvironment() {
+
+}
+
+function drawComparisonEnvironment() {
+
+}
+
+function drawComparisonScreen() {
+    updateComparisonEnvironment();
+    //animatedMovement();
+    drawComparisonEnvironment();
+}
+
+function resetDataViz () {
+
+}
+
+function drawStartScreen() {
 
 }
 
 
 
-  
-  
-  
+
+
 function highlightObject(object) {
 //highlight animation of object
 }
