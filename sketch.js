@@ -11,18 +11,6 @@ let interActionAreaHeight = screenHeight / 8;
 let state = 0; //states: 0 = start / 1 = running / 2 = info / 3 = end
 
 
-
-
-
-//OBJECTS FOR MAIN ELEMENTS
-//ContentObjects
-//ServerObjects
-//AgentObjects
-//personalCounterObjects
-//globalCounterObjects
-
-
-
 function setup() {
   //createCanvas(window.innerWidth, window.innerHeight);
   createCanvas(screenWidth, screenHeight);
@@ -35,15 +23,23 @@ function setup() {
 function draw() {
   switch (state) {
     case 0:
+      drawStartScreen();
       break;
 
     case 1:
+      calculateObjects();
+      updateObjects();
+      drawMainScreen();
       break;
 
     case 2:
+      drawInfoScreen();
       break;
 
     case 3:
+      calculateObjects();
+      updateObjects();
+      drawComparisonScreen();
       break;
   }
   
