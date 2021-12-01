@@ -16,15 +16,23 @@ const screenObjectBuilder = (name, pos, size, screenName, dataSize) => ({
   }
 );
 
-//objectbuilderfunction
-const dataObjectBuilder = (name, totalData, travel, charges, food) => ({
-    name,
-    totalData,
-    travel,
-    charges,
-    food
-  }
-);
+
+//Data Object for Calculation Base
+const dataCalculationObject = {
+  co2: 0.05,
+  water: 2,
+  land: 0.0035,
+}
+
+//Data Object for Personal Impact
+const dataPersonalImpactObject = {
+
+}
+
+//Data Object for Comparison
+const dataComparisonObject = {
+
+}
 
 //generate all screen objects
 screenObjects.push(screenObjectBuilder('testobject', [1,2], [30,50], 'screenname', 394));
@@ -53,3 +61,16 @@ screenObjects.push(screenObjectBuilder('serverObjectLand', [(screenWidth * (2/48
 
 //test screen objects
 console.log(screenObjects.find(element => element.name === 'receiverObjectSmallGroup1'));
+
+
+/*
+//objectbuilderfunction
+const dataObjectBuilder = (name, totalData, travel, charges, food) => ({
+    name,
+    totalData,
+    travel,
+    charges,
+    food
+  }
+);
+*/
