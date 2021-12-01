@@ -35,7 +35,6 @@ function draw() {
       drawComparisonScreen();
       break;
   }
-  
 }
 
 function touchMoved() {

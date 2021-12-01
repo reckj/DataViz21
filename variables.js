@@ -12,6 +12,7 @@ let interActionAreaHeight = screenHeight / 8;
 
 //code flow/structure variables
 let state = 1; //states: 0 = start / 1 = running / 2 = info / 3 = end
+let acitveDataWeight = 10;
 
 //colors for wireframe
 let mediaColor = 0;

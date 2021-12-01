@@ -13,7 +13,14 @@ function animatedMovement(startposition, endposition, speed, movementType) {
 
 //calculate data values for all screen objects
 function calculateObjects() {
+    screenObjects.forEach(calculateScreenObjects);
 
+    function calculateScreenObjects(value, index, array){
+        if (value.state == 'active'){
+            value.dataSize = value.dataSize + acitveDataWeight * value.groupSize;
+            value.state = 'passive';
+        }
+    }
 }
 
 //update all objects with changes resulting through new numbers or actions
