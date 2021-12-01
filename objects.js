@@ -34,15 +34,16 @@ screenObjects.push(screenObjectBuilder('mediaObjectVideo', [(screenWidth * (22/4
 screenObjects.push(screenObjectBuilder('mediaObjectText', [(screenWidth * (25/48)),(screenHeight * (23/27))], [(screenWidth * (2/48)),(screenHeight * (2/27))], 'Text', 0.1));
 screenObjects.push(screenObjectBuilder('mediaObjectVoice', [(screenWidth * (28/48)),(screenHeight * (23/27))], [(screenWidth * (2/48)),(screenHeight * (2/27))], 'Voice', 1));
 
-screenObjects.push(screenObjectBuilder('receiverObjectPerson1', [(screenWidth * (5/48)),(screenHeight * (17/27))], [(screenWidth * (2/48)),(screenHeight * (2/27))], 'Mica', 1));
-screenObjects.push(screenObjectBuilder('receiverObjectPerson2', [(screenWidth * (18/48)),(screenHeight * (17/27))], [(screenWidth * (2/48)),(screenHeight * (2/27))], 'Elena', 1));
-screenObjects.push(screenObjectBuilder('receiverObjectPerson3', [(screenWidth * (33/48)),(screenHeight * (17/27))], [(screenWidth * (2/48)),(screenHeight * (2/27))], 'Johannes', 1));
-screenObjects.push(screenObjectBuilder('receiverObjectPerson4', [(screenWidth * (42/48)),(screenHeight * (17/27))], [(screenWidth * (2/48)),(screenHeight * (2/27))], 'Janosch', 1));
-screenObjects.push(screenObjectBuilder('receiverObjectSmallGroup1', [(screenWidth * (35/48)),(screenHeight * (7/27))], [(screenWidth * (3/48)),(screenHeight * (3/27))], 'Family', 5));
-screenObjects.push(screenObjectBuilder('receiverObjectSmallGroup2', [(screenWidth * (16/48)),(screenHeight * (8/27))], [(screenWidth * (3/48)),(screenHeight * (3/27))], 'Friends', 8));
-screenObjects.push(screenObjectBuilder('receiverObjectBigGroup1', [(screenWidth * (8/48)),(screenHeight * (5/27))], [(screenWidth * (4/48)),(screenHeight * (4/27))], 'Jahrgang', 56));
-screenObjects.push(screenObjectBuilder('receiverObjectBigGroup2', [(screenWidth * (28/48)),(screenHeight * (4/27))], [(screenWidth * (4/48)),(screenHeight * (4/27))], 'Fussballmannschaft', 24));
-screenObjects.push(screenObjectBuilder('receiverObjectWorld', [(screenWidth * (0/48)),(screenHeight * (0/27))], [(screenWidth * (48/48)),(screenHeight * (3/27))], 'Social Media', 999));
+screenObjects.push(screenObjectBuilder('avatarObjectPerson1', [(screenWidth * (5/48)),(screenHeight * (17/27))], [(screenWidth * (2/48)),(screenHeight * (2/27))], 'Mica', 1));
+screenObjects.push(screenObjectBuilder('avatarObjectPerson2', [(screenWidth * (18/48)),(screenHeight * (17/27))], [(screenWidth * (2/48)),(screenHeight * (2/27))], 'Elena', 1));
+screenObjects.push(screenObjectBuilder('avatarObjectPerson3', [(screenWidth * (33/48)),(screenHeight * (17/27))], [(screenWidth * (2/48)),(screenHeight * (2/27))], 'Johannes', 1));
+screenObjects.push(screenObjectBuilder('avatarObjectPerson4', [(screenWidth * (42/48)),(screenHeight * (18/27))], [(screenWidth * (2/48)),(screenHeight * (2/27))], 'Janosch', 1));
+
+screenObjects.push(screenObjectBuilder('avatarObjectSmallGroup1', [(screenWidth * (35/48)),(screenHeight * (7/27))], [(screenWidth * (3/48)),(screenHeight * (3/27))], 'Family', 5));
+screenObjects.push(screenObjectBuilder('avatarObjectSmallGroup2', [(screenWidth * (16/48)),(screenHeight * (8/27))], [(screenWidth * (3/48)),(screenHeight * (3/27))], 'Friends', 8));
+screenObjects.push(screenObjectBuilder('avatarObjectBigGroup1', [(screenWidth * (8/48)),(screenHeight * (5/27))], [(screenWidth * (4/48)),(screenHeight * (4/27))], 'Jahrgang', 56));
+screenObjects.push(screenObjectBuilder('avatarObjectBigGroup2', [(screenWidth * (28/48)),(screenHeight * (4/27))], [(screenWidth * (4/48)),(screenHeight * (4/27))], 'Fussballmannschaft', 24));
+screenObjects.push(screenObjectBuilder('avatarObjectWorld', [(screenWidth * (0/48)),(screenHeight * (0/27))], [(screenWidth * (48/48)),(screenHeight * (3/27))], 'Social Media', 999));
 
 screenObjects.push(screenObjectBuilder('emissionObjectEnergy', [(screenWidth * (0/48)),(screenHeight * (3/27))], [(screenWidth * (6/48)),(screenHeight * (6/27))], 'Energieverbrauch', 100));
 screenObjects.push(screenObjectBuilder('emissionObjectWater', [(screenWidth * (42/48)),(screenHeight * (0/27))], [(screenWidth * (6/48)),(screenHeight * (6/27))], 'Wasserverbrauch', 100));
