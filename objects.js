@@ -19,19 +19,36 @@ const screenObjectBuilder = (name, pos, size, screenName, dataSize) => ({
 
 //Data Object for Calculation Base
 const dataCalculationObject = {
-  co2: 0.05,
-  water: 2,
-  land: 0.0035,
+  co2Factor: 0.00005,     //kgCO2 per MB
+  waterFactor: 0.002,     //liter per MB
+  landFactor: 0.0000035,  //m^2 per MB
+  carFactor: 0,
+  trainFactor: 0,
+  airplaneFactor: 0,
+  chargesFactor: 0,
+  tomatosFactor: 0,
+  co2ReductionFactor: 0,
+  waterReductionFactor: 0,
+  landReductionFactor: 0,
 }
 
 //Data Object for Personal Impact
 const dataPersonalImpactObject = {
-
+  co2: 0,
+  water: 0,
+  land: 0,
 }
 
 //Data Object for Comparison
 const dataComparisonObject = {
-
+  car: 0,
+  train: 0,
+  airplane: 0,
+  charges: 0,
+  tomatos: 0,
+  co2Reduction: 0,
+  waterReduction: 0,
+  landReduction: 0,
 }
 
 //generate all screen objects
