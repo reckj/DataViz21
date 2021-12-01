@@ -37,4 +37,12 @@ function drawAvatarWorldObject(object) {
 function drawGrid(){
     //48 lines vertical lines
     //27 horizontal lines
+    for (var x = 0; x < screenWidth; x += screenWidth / (screenWidth * (1/48)) ) {
+		for (var y = 0; y < screenHeight; y += screenHeight / (screenHeight * (1/27)) ) {
+			stroke(0);
+			strokeWeight(1);
+			line(x, 0, x, screenHeight);
+			line(0, y, screenWidth, y);
+		}
+	}
 }
