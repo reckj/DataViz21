@@ -22,11 +22,16 @@ function drawAvatarPersonObject(object) {
 }
 
 function drawAvatarGroupObject(object) {
-
+    fill(avatarColor);
+    noStroke();
+    circle(object.pos[0] + object.size[0], object.pos[1] + object.size[0], object.size[0], object.size[1]);
 }
 
 function drawAvatarWorldObject(object) {
-
+    rectMode(CORNER);
+    noStroke();
+    fill(avatarColor);
+    rect(object.pos[0], object.pos[1], object.size[0], object.size[1]);
 }
 
 function drawGrid(){
