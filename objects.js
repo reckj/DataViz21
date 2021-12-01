@@ -1,23 +1,35 @@
-//Objectbuilderfunction
+//generating all required objects
+
+//screenobject array
 const screenObjects = [];
 
-const objectBuilder = (name, posX, posY, sizeX, sizeY, color, state, dataSize, screenName) => ({
+//screenobject array
+const dataObjects = [];
+
+//screenobjectbuilderfunction
+const screenObjectBuilder = (name, pos, size, screenName, dataSize) => ({
     name,
-    posX,
-    posY,
-    sizeX,
-    sizeY,
-    color,
-    state,
-    dataSize,
+    pos,
+    size,
     screenName,
+    dataSize,
   }
 );
 
-//generate objects
-screenObjects.push(objectBuilder('testobject', 1,2,2,2,[2,2,2,2],'active'));
-screenObjects.push(objectBuilder('testobject2', 1,2,2,2,[2,2,2,2],'passive'));
+//objectbuilderfunction
+const dataObjectBuilder = (name, totalData, travel, charges, food) => ({
+    name,
+    totalData,
+    travel,
+    charges,
+    food
+  }
+);
+
+//generate all screen objects
+screenObjects.push(screenObjectBuilder('testobject', [1,2], [30,50], 'screenname', 394));
 
 
-console.log(screenObjects.find(element => element.name === 'testobject2'));
-console.log(screenObjects.find(element => element.name === 'testobject2').color);
+//test screen objects
+console.log(screenObjects.find(element => element.name === 'testobject'));
+
