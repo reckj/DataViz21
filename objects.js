@@ -16,6 +16,7 @@ const screenObjectBuilder = (name, pos, size, screenName, dataSize) => ({
   }
 );
 
+/*
 //objectbuilderfunction
 const dataObjectBuilder = (name, totalData, travel, charges, food) => ({
     name,
@@ -25,6 +26,23 @@ const dataObjectBuilder = (name, totalData, travel, charges, food) => ({
     food
   }
 );
+*/
+
+
+//Data Object for Calculation Base
+const dataCalculationObject = {
+
+}
+
+//Data Object for Personal Impact
+const dataPersonalImpactObject = {
+
+}
+
+//Data Object for Comparison
+const dataComparisonObject = {
+  
+}
 
 //generate all screen objects
 screenObjects.push(screenObjectBuilder('testobject', [1,2], [30,50], 'screenname', 394));

@@ -11,10 +11,12 @@ function animatedMovement(startposition, endposition, speed, movementType) {
     //movementTypes -> arc, line, bezier
 }
 
+//calculate data values for all screen objects
 function calculateObjects() {
-
+    
 }
 
+//update all objects with changes resulting through new numbers or actions
 function updateObjects() {
     
 }
