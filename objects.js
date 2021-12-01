@@ -57,7 +57,7 @@ console.log(screenObjects.find(element => element.name === 'receiverObjectSmallG
 screenObjects.push(screenObjectBuilder('testobject', [1,2], [30,50], 'screenname', 394));
 
 screenObjects.push(screenObjectBuilder('mediaObjectImage', [(screenWidth * (19/48)),(screenHeight * (23/27))], [160,160], 'Image', 5));
-screenObjects.push(screenObjectBuilder('mediaObjectVideo', [(screenWidth * (22/48)),1840], [160,160], 'Video', 250));
+screenObjects.push(screenObjectBuilder('mediaObjectVideo', [(screenWidth * (22/48)),(screenHeight * (23/27))], [160,160], 'Video', 250));
 screenObjects.push(screenObjectBuilder('mediaObjectText', [2000,1840], [160,160], 'Text', 0.1));
 screenObjects.push(screenObjectBuilder('mediaObjectVoice', [2240,1840], [160,160], 'Voice', 1));
 
