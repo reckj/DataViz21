@@ -56,10 +56,10 @@ console.log(screenObjects.find(element => element.name === 'receiverObjectSmallG
 //generate all screen objects
 screenObjects.push(screenObjectBuilder('testobject', [1,2], [30,50], 'screenname', 394));
 
-screenObjects.push(screenObjectBuilder('mediaObjectImage', [(screenWidth * (19/48)),(screenHeight * (23/27))], [160,160], 'Image', 5));
-screenObjects.push(screenObjectBuilder('mediaObjectVideo', [(screenWidth * (22/48)),(screenHeight * (23/27))], [160,160], 'Video', 250));
-screenObjects.push(screenObjectBuilder('mediaObjectText', [2000,1840], [160,160], 'Text', 0.1));
-screenObjects.push(screenObjectBuilder('mediaObjectVoice', [2240,1840], [160,160], 'Voice', 1));
+screenObjects.push(screenObjectBuilder('mediaObjectImage', [(screenWidth * (19/48)),(screenHeight * (23/27))], [(screenWidth * (2/48)),(screenHeight * (2/27))], 'Image', 5));
+screenObjects.push(screenObjectBuilder('mediaObjectVideo', [(screenWidth * (22/48)),(screenHeight * (23/27))], [(screenWidth * (2/48)),(screenHeight * (2/27))], 'Video', 250));
+screenObjects.push(screenObjectBuilder('mediaObjectText', [(screenWidth * (25/48)),(screenHeight * (23/27))], [(screenWidth * (2/48)),(screenHeight * (2/27))], 'Text', 0.1));
+screenObjects.push(screenObjectBuilder('mediaObjectVoice', [(screenWidth * (28/48)),(screenHeight * (23/27))], [(screenWidth * (2/48)),(screenHeight * (2/27))], 'Voice', 1));
 
 screenObjects.push(screenObjectBuilder('receiverObjectPerson1', [400,1360], [160,160], 'Mica', 1));
 screenObjects.push(screenObjectBuilder('receiverObjectPerson2', [1440,1360], [160,160], 'Elena', 1));
