@@ -33,6 +33,19 @@ function setup() {
 
 
 function draw() {
+  switch (state) {
+    case 0:
+      break;
+
+    case 1:
+      break;
+
+    case 2:
+      break;
+
+    case 3:
+      break;
+  }
   
 }
 
@@ -40,22 +53,3 @@ function touchMoved() {
 
 }
 
-
-function checkObjectCollision(object) {
-  //check if mouse/touch is over object
-}
-
-function animatedMovement(startposition, endposition, speed, movementType) {
-  //startposition
-  //endposition
-  //speed -> animationspeed
-  //movementTypes -> arc, line, bezier
-}
-
-function highlightObject(object) {
-  //highlight animation of object
-}
-
-function disappearingObject(object) {
-  //make a object dissappear though animation
-}
