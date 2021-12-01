@@ -15,3 +15,4 @@ let state = 1; //states: 0 = start / 1 = running / 2 = info / 3 = end
 
 //colors for wireframe
 let mediaColor = 0;
+let avatarColor = '#ff0000';
