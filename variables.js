@@ -15,6 +15,6 @@ let state = 1; //states: 0 = start / 1 = running / 2 = info / 3 = end
 
 //colors for wireframe
 let mediaColor = 0;
-let avatarPersonColor = '#ff0000';
-let avatarGroupColor = '#ff0000';
-let avatarWorldColor = '#ff0000';
+let avatarPersonColor = '#4583FF';
+let avatarGroupColor = '#00B368';
+let avatarWorldColor = '#FFABE9';

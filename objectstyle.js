@@ -16,13 +16,13 @@ function drawAvatarPersonObject(object) {
     //draw Avatar Object based on object parameters
 
     //start with Circle wireframe style as placeholder
-    fill(avatarColor);
+    fill(avatarPersonColor);
     noStroke();
     circle(object.pos[0] + object.size[0], object.pos[1] + object.size[0], object.size[0], object.size[1]);
 }
 
 function drawAvatarGroupObject(object) {
-    fill(avatarColor);
+    fill(avatarGroupColor);
     noStroke();
     circle(object.pos[0] + object.size[0], object.pos[1] + object.size[0], object.size[0], object.size[1]);
 }
@@ -30,7 +30,7 @@ function drawAvatarGroupObject(object) {
 function drawAvatarWorldObject(object) {
     rectMode(CORNER);
     noStroke();
-    fill(avatarColor);
+    fill(avatarWorldColor);
     rect(object.pos[0], object.pos[1], object.size[0], object.size[1]);
 }
 
