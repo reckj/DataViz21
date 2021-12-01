@@ -25,6 +25,9 @@ function updateMainEnvironment() {
 
 function drawMainEnvironment() {
     drawMediaObject(screenObjects.find(element => element.name === 'mediaObjectImage'));
+    drawMediaObject(screenObjects.find(element => element.name === 'mediaObjectVideo'));
+    drawMediaObject(screenObjects.find(element => element.name === 'mediaObjectText'));
+    drawMediaObject(screenObjects.find(element => element.name === 'mediaObjectVoice'));
 }
 
 function drawMainScreen() {
