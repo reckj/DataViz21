@@ -24,7 +24,7 @@ function updateMainEnvironment() {
 }
 
 function drawMainEnvironment() {
-
+    drawMediaObject(screenObjects.find(element => element.name === 'mediaObjectImage'));
 }
 
 function drawMainScreen() {

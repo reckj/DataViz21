@@ -1,7 +1,10 @@
 //draw functions for objects
 
-function drawMediaObject(object){
+//gets Media Object to be drawn
+function drawMediaObject(object) {
+    //draw Media Object based on object parameters
     
+    //start with Rect wireframe style as placeholder
 }
 
 function drawGrid(){
