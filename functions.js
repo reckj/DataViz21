@@ -16,9 +16,38 @@ function calculateObjects() {
     screenObjects.forEach(calculateScreenObjects);
 
     function calculateScreenObjects(value, index, array){
-        if (value.state == 'active'){
-            value.dataSize = value.dataSize + acitveDataWeight * value.groupSize;
+        if (value.state == 'active' && (value.name == 'mediaObjectImage' || value.name == 'mediaObjectVideo' || value.name == 'mediaObjectText' || value.name == 'mediaObjectVoice')) {
+            switch (value.name) {
+                case 'mediaObjectImage':
+                    dataPersonalImpactObject.numberImage = dataPersonalImpactObject.numberImage + 1;
+                    console.log(value.name + ': ' + dataPersonalImpactObject.numberImage);
+                break;
+                
+                case 'mediaObjectVideo':
+                    dataPersonalImpactObject.numberVideo = dataPersonalImpactObject.numberVideo + 1;
+                    console.log(value.name + ': ' + dataPersonalImpactObject.numberVideo);
+                break;
+
+                case 'mediaObjectText':
+                    dataPersonalImpactObject.numberText = dataPersonalImpactObject.numberText + 1;
+                    console.log(value.name + ': ' + dataPersonalImpactObject.numberText);
+                break;
+
+                case 'mediaObjectVoice':
+                    dataPersonalImpactObject.numberVoice = dataPersonalImpactObject.numberVoice + 1;
+                    console.log(value.name + ': ' + dataPersonalImpactObject.numberVoice);
+                break;
+            }
+            value.state = 'passive'; 
+        }
+
+        if (value.state == 'active' && value.name != 'mediaObjectImage' && value.name != 'mediaObjectVideo' && value.name != 'mediaObjectText' && value.name != 'mediaObjectVoice'){
+            value.dataSize = value.dataSize + activeDataWeight * value.groupSize;
+            dataPersonalImpactObject.co2 = dataPersonalImpactObject.co2 + activeDataWeight * dataCalculationObject.co2Factor;
+            dataPersonalImpactObject.water = dataPersonalImpactObject.water + activeDataWeight * dataCalculationObject.waterFactor;
+            dataPersonalImpactObject.land = dataPersonalImpactObject.land + activeDataWeight * dataCalculationObject.landFactor;
             value.state = 'passive';
+            console.log(value.name + ' datasize: ' + value.dataSize);
         }
     }
 }

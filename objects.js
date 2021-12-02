@@ -21,9 +21,9 @@ const dataCalculationObject = {
   co2Factor: 0.05,     //gCO2 per MB
   waterFactor: 0.002,     //liter per MB
   landFactor: 0.0000035,  //m^2 per MB
-  carFactor: 0,
-  trainFactor: 0,
-  airplaneFactor: 0,
+  carFactor: 0,           //500m pro GB
+  trainFactor: 0,         //
+  airplaneFactor: 0,      //1.5sec pro GB
   chargesFactor: 7.8,     //Gramms per Phone Charge 
   tomatosFactor: 0.2,     //Liter Water per Gramm tomatos
 }
@@ -33,6 +33,10 @@ const dataPersonalImpactObject = {
   co2: 0,
   water: 0,
   land: 0,
+  numberImage: 0,
+  numberVideo: 0,
+  numberText: 0,
+  numberVoice: 0,
 }
 
 //Data Object for Comparison
@@ -45,9 +49,9 @@ const dataComparisonObject = {
 }
 
 //generate all screen objects
-screenObjects.push(screenObjectBuilder('mediaObjectImage', [(screenWidth * (19/48)),(screenHeight * (23/27))], [(screenWidth * (2/48)),(screenHeight * (2/27))], 'Image', 1, 5, 'passive'));
+screenObjects.push(screenObjectBuilder('mediaObjectImage', [(screenWidth * (19/48)),(screenHeight * (23/27))], [(screenWidth * (2/48)),(screenHeight * (2/27))], 'Image', 1, 5, 'active'));
 screenObjects.push(screenObjectBuilder('mediaObjectVideo', [(screenWidth * (22/48)),(screenHeight * (23/27))], [(screenWidth * (2/48)),(screenHeight * (2/27))], 'Video', 1, 250, 'passive'));
-screenObjects.push(screenObjectBuilder('mediaObjectText', [(screenWidth * (25/48)),(screenHeight * (23/27))], [(screenWidth * (2/48)),(screenHeight * (2/27))], 'Text', 1, 0.1, 'passive'));
+screenObjects.push(screenObjectBuilder('mediaObjectText', [(screenWidth * (25/48)),(screenHeight * (23/27))], [(screenWidth * (2/48)),(screenHeight * (2/27))], 'Text', 1, 0.1, 'active'));
 screenObjects.push(screenObjectBuilder('mediaObjectVoice', [(screenWidth * (28/48)),(screenHeight * (23/27))], [(screenWidth * (2/48)),(screenHeight * (2/27))], 'Voice', 1, 1, 'passive'));
 
 screenObjects.push(screenObjectBuilder('avatarObjectPerson1', [(screenWidth * (5/48)),(screenHeight * (17/27))], [(screenWidth * (2/48)),(screenHeight * (2/27))], 'Mica', 1, 0, 'active'));

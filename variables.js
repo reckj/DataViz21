@@ -12,10 +12,12 @@ let interActionAreaHeight = screenHeight / 8;
 
 //code flow/structure variables
 let state = 1; //states: 0 = start / 1 = running / 2 = info / 3 = end
-let acitveDataWeight = 10;
+let activeDataWeight = 10;
 
 //colors for wireframe
 let mediaColor = 0;
-let avatarPersonColor = '#4583FF';
-let avatarGroupColor = '#00B368';
-let avatarWorldColor = '#FFABE9';
+let avatarPersonColor = '#737375';
+let avatarGroupColor = '#ACADAF';
+let avatarWorldColor = '#F1F2F4';
+let color4 = '#374C2A';
+let color5 = '#75A631';
