@@ -3,6 +3,12 @@
 //screenobject array
 const screenObjects = [];
 
+/*
+const screenObjectBuilder = (options) => ({
+  //options.name;
+})
+*/
+
 //screenobjectbuilderfunction
 const screenObjectBuilder = (name, pos, size, screenName, groupSize, dataSize, state) => ({
     name,

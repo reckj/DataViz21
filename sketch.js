@@ -38,6 +38,6 @@ function draw() {
 }
 
 function touchMoved() {
-
+  // is flag touchPossible true?
 }
 

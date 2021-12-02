@@ -11,45 +11,54 @@ function animatedMovement(startposition, endposition, speed, movementType) {
     //movementTypes -> arc, line, bezier
 }
 
+/*
 //calculate data values for all screen objects
 function calculateObjects() {
-    screenObjects.forEach(calculateScreenObjects);
+    // check only objects we have an interest in:
+    // e.g. filter for icons
+    const filteredObjects = screenObjects.filter(object => {
+        return object.type === 'icon'
+    })
+    */
 
-    function calculateScreenObjects(value, index, array){
-        if (value.state == 'active' && (value.name == 'mediaObjectImage' || value.name == 'mediaObjectVideo' || value.name == 'mediaObjectText' || value.name == 'mediaObjectVoice')) {
-            switch (value.name) {
+    //filteredObjects.forEach
+function calculateObjects() {
+    screenObjects.forEach(function (object) {
+        if (object.state == 'active' && (object.name == 'mediaObjectImage' || object.name == 'mediaObjectVideo' || object.name == 'mediaObjectText' || object.name == 'mediaObjectVoice')) {
+            switch (object.name) {
                 case 'mediaObjectImage':
                     dataPersonalImpactObject.numberImage = dataPersonalImpactObject.numberImage + 1;
-                    console.log(value.name + ': ' + dataPersonalImpactObject.numberImage);
+                    console.log(object.name + ': ' + dataPersonalImpactObject.numberImage);
                 break;
                 
                 case 'mediaObjectVideo':
                     dataPersonalImpactObject.numberVideo = dataPersonalImpactObject.numberVideo + 1;
-                    console.log(value.name + ': ' + dataPersonalImpactObject.numberVideo);
+                    console.log(object.name + ': ' + dataPersonalImpactObject.numberVideo);
                 break;
 
                 case 'mediaObjectText':
                     dataPersonalImpactObject.numberText = dataPersonalImpactObject.numberText + 1;
-                    console.log(value.name + ': ' + dataPersonalImpactObject.numberText);
+                    console.log(object.name + ': ' + dataPersonalImpactObject.numberText);
                 break;
 
                 case 'mediaObjectVoice':
                     dataPersonalImpactObject.numberVoice = dataPersonalImpactObject.numberVoice + 1;
-                    console.log(value.name + ': ' + dataPersonalImpactObject.numberVoice);
+                    console.log(object.name + ': ' + dataPersonalImpactObject.numberVoice);
                 break;
             }
-            value.state = 'passive'; 
+            object.state = 'passive'; 
         }
 
-        if (value.state == 'active' && value.name != 'mediaObjectImage' && value.name != 'mediaObjectVideo' && value.name != 'mediaObjectText' && value.name != 'mediaObjectVoice'){
-            value.dataSize = value.dataSize + activeDataWeight * value.groupSize;
+        if (object.state == 'active' && object.name != 'mediaObjectImage' && object.name != 'mediaObjectVideo' && object.name != 'mediaObjectText' && object.name != 'mediaObjectVoice'){
+            object.dataSize = object.dataSize + activeDataWeight * object.groupSize;
             dataPersonalImpactObject.co2 = dataPersonalImpactObject.co2 + activeDataWeight * dataCalculationObject.co2Factor;
             dataPersonalImpactObject.water = dataPersonalImpactObject.water + activeDataWeight * dataCalculationObject.waterFactor;
             dataPersonalImpactObject.land = dataPersonalImpactObject.land + activeDataWeight * dataCalculationObject.landFactor;
-            value.state = 'passive';
-            console.log(value.name + ' datasize: ' + value.dataSize);
+            object.state = 'passive';
+            console.log(object.name + ' datasize: ' + object.dataSize);
         }
     }
+)
 }
 
 //update all objects with changes resulting through new numbers or actions
