@@ -1,146 +1,70 @@
-console.log(test);
-testfunction();
-
-let screenScaler = 4; //scaler for work on smaller screens
-let screenWidth = 3840 / screenScaler;
-let screenHeight = 2160 / screenScaler;
-
-let interActionAreaWidth = screenWidth / 3;
-let interActionAreaHeight = screenHeight / 8;
-
-let touchColor = 0;
-
-let ringRadius1 = screenWidth * 4 / 10;
-let ringRadius2 = screenWidth * 6 / 10;
-let ringRadius3 = screenWidth * 8 / 10;
-
-//Objectbuilderfunction
-const screenObjects = [];
-
-const objectBuilder = (name, posX, posY, sizeX, sizeY, color, state) => ({
-    name,
-    posX,
-    posY,
-    sizeX,
-    sizeY,
-    color,
-    state,
-  }
-);
-
-
-//OBJECTS FOR MAIN ELEMENTS
-//ContentObjects
-//ServerObjects
-//AgentObjects
-//personalCounterObjects
-//globalCounterObjects
-
-let serverObject = {
-  sizeX: screenWidth * 9 / 10,
-  sizeY: screenHeight * 4 / 10,
-  posX: screenWidth / 2,
-  posY: screenHeight * 6 / 10,
-  color: [0, 0, 0, 0],
-}
-
-let contentObject1 = {
-  sizeX: 50,
-  sizeY: 50,
-  posX: screenWidth / 2,
-  posY: screenHeight - 50,
-}
-
-
+//P5 MAIN SKETCH
 function setup() {
   //createCanvas(window.innerWidth, window.innerHeight);
   createCanvas(screenWidth, screenHeight);
-  let backgroundColor = color(0, 0, 0, 0);
+  let backgroundColor = '#ffffff';
   background(backgroundColor);
   textSize(22);
   
-  //generate objects
-  screenObjects.push(objectBuilder('testobject', 1,2,2,2,[2,2,2,2],'active'));
-  screenObjects.push(objectBuilder('testobject2', 1,2,2,2,[2,2,2,2],'passive'));
-  console.log(screenObjects.find(element => element.name === 'testobject2'));
+  //for debug only
+  stroke(0);
+  strokeWeight(5);
+  rect(0, 0, screenWidth, screenHeight);
 }
 
 
 function draw() {
-  clear();
-  let backgroundColor = color('#495773');
-  background(backgroundColor);
-  noStroke();
-  
-  let ringColor3 = color('#8C1822');
-  fill(ringColor3);
-  circle(width/2, height, ringRadius3);
+  switch (state) {
+    case 0:
+      drawStartScreen();
+      break;
 
-  let ringColor2 = color('#BF2A37');
-  fill(ringColor2);
-  circle(width/2, height, ringRadius2);
+    case 1:
+      calculateObjects();
+      updateObjects();
+      drawMainScreen();
+      if (screenObjects.find(element => element.name === 'messageObject').state == 'active') {
+        drawMessageObject(screenObjects.find(element => element.name === 'messageObject'));
+        
+      }
+      break;
 
-  let ringColor1 = color('#F22929');
-  fill(ringColor1);
-  circle(width/2, height, ringRadius1);
+    case 2:
+      drawInfoScreen();
+      break;
 
-  let c = color(0, 0, 0);
-  fill(c);
-  rectMode(CENTER);
-  rect(width/2, height - interActionAreaHeight/2, interActionAreaWidth, interActionAreaHeight);
-
-  let contentObject1Color = color('#141640');
-  fill(contentObject1Color)
-  rectMode(CENTER);
-  rect(contentObject1.posX, contentObject1.posY, contentObject1.sizeX, contentObject1.sizeY);
-
-  fill(serverObject.color);
-  rectMode(CENTER);
-  rect(serverObject.posX, serverObject.posY, serverObject.sizeX, serverObject.sizeY);
-
- /*
-  var svg = document.getElementById('svg-object');
-  svg.style.height = '450px';
-  svg.style.zIndex = '10000';
- */
+    case 3:
+      calculateObjects();
+      updateObjects();
+      drawComparisonScreen();
+      break;
+  }
 }
 
 function touchMoved() {
+  // is flag touchPossible true?
+  screenObjects.find(element => element.name === 'messageObject').pos = [mouseX - screenObjects.find(element => element.name === 'messageObject').size[0]/2,
+    mouseY - screenObjects.find(element => element.name === 'messageObject').size[1]/2];
+}
 
-  if((mouseX > contentObject1.posX - contentObject1.sizeX / 2) &&
-  (mouseX < contentObject1.posX + contentObject1.sizeX / 2) &&
-  (mouseY > contentObject1.posY - contentObject1.sizeY / 2) &&
-  (mouseY < contentObject1.posY + contentObject1.sizeY / 2))
-  {
-    contentObject1.posX = mouseX;
-    contentObject1.posY = mouseY;
+function touchStarted() {
+  screenObjects.find(element => element.name === 'messageObject').pos = [mouseX - screenObjects.find(element => element.name === 'messageObject').size[0]/2,
+    mouseY - screenObjects.find(element => element.name === 'messageObject').size[1]/2];
 
-    serverObject.color[3] = 40;
-    if(mouseY < serverObject.posY + serverObject.sizeY / 2){
-      serverObject.color[3] = 80;
+  screenObjects.forEach(function (object) {
+    if (object.touchable == true) {
+      checkObjectCollision(object);
+      screenObjects.find(element => element.name === 'messageObject').state = 'active';
     }
-  }
-  else{
-    serverObject.color[3] = 0;
-  }
+  })
 }
 
-
-function checkObjectCollision(object) {
-  //check if mouse/touch is over object
-}
-
-function animatedMovement(startposition, endposition, speed, movementType) {
-  //startposition
-  //endposition
-  //speed -> animationspeed
-  //movementTypes -> arc, line, bezier
-}
-
-function highlightObject(object) {
-  //highlight animation of object
-}
-
-function disappearingObject(object) {
-  //make a object dissappear though animation
+function touchEnded() {
+  screenObjects.forEach(function (object) {
+    if (object.name == 'senderObjectAvatar1' || object.name == 'senderObjectAvatar2' || object.name == 'senderObjectAvatar3' || object.name == 'senderObjectAvatar4' ||
+    object.name == 'senderObjectGroup1' || object.name == 'senderObjectGroup2' || object.name == 'senderObjectGroup3' || object.name == 'senderObjectGroup4' || object.name == 'senderObjectWorld') {
+      checkObjectCollision(object);
+      screenObjects.find(element => element.name === 'messageObject').state = 'passive';
+    }
+  })
 }
