@@ -1,7 +1,10 @@
 function checkObjectCollision(object) {
     //check if mouse/touch is over object
-
     //all the things happening when touching objects
+    if (mouseX > object.pos[0] && mouseX < object.pos[0] + object.size[0] && mouseY > object.pos[1] && mouseY < object.pos[1] + object.size[1]) {
+        console.log('over object: ' + object.screenName);
+        activeDataWeight = object.dataWeight;
+    }
 }
 
 function animatedMovement(startposition, endposition, speed, movementType) {
@@ -22,6 +25,7 @@ function calculateObjects() {
     */
 
     //filteredObjects.forEach
+
 function calculateObjects() {
     screenObjects.forEach(function (object) {
         if (object.state == 'active' && (object.name == 'mediaObjectImage' || object.name == 'mediaObjectVideo' || object.name == 'mediaObjectText' || object.name == 'mediaObjectVoice')) {
@@ -49,7 +53,7 @@ function calculateObjects() {
             object.state = 'passive'; 
         }
 
-        if (object.state == 'active' && object.name != 'mediaObjectImage' && object.name != 'mediaObjectVideo' && object.name != 'mediaObjectText' && object.name != 'mediaObjectVoice'){
+        if (object.state == 'active' && object.name != 'mediaObjectImage' && object.name != 'mediaObjectVideo' && object.name != 'mediaObjectText' && object.name != 'mediaObjectVoice' && object.name != 'messageObject'){
             object.dataSize = object.dataSize + activeDataWeight * object.groupSize;
             dataPersonalImpactObject.co2 = dataPersonalImpactObject.co2 + activeDataWeight * dataCalculationObject.co2Factor;
             dataPersonalImpactObject.water = dataPersonalImpactObject.water + activeDataWeight * dataCalculationObject.waterFactor;
@@ -57,8 +61,7 @@ function calculateObjects() {
             object.state = 'passive';
             console.log(object.name + ' datasize: ' + object.dataSize);
         }
-    }
-)
+    })
 }
 
 //update all objects with changes resulting through new numbers or actions
@@ -71,7 +74,20 @@ function updateMainEnvironment() {
 }
 
 function drawMainEnvironment() {
+    clear();
     drawGrid();
+
+    drawServerObject(screenObjects.find(element => element.name === 'serverObject'));
+
+    drawSenderObject(screenObjects.find(element => element.name === 'senderImageObject'));
+    drawSenderObject(screenObjects.find(element => element.name === 'senderVideoObject'));
+    drawSenderObject(screenObjects.find(element => element.name === 'senderTextObject'));
+    drawSenderObject(screenObjects.find(element => element.name === 'senderVoiceObject'));
+
+
+    drawEmissionObject(screenObjects.find(element => element.name === 'emissionObjectCO2'));
+    drawEmissionObject(screenObjects.find(element => element.name === 'emissionObjectWater'));
+    drawEmissionObject(screenObjects.find(element => element.name === 'emissionObjectLand'));
 
     drawMediaObject(screenObjects.find(element => element.name === 'mediaObjectImage'));
     drawMediaObject(screenObjects.find(element => element.name === 'mediaObjectVideo'));
@@ -89,6 +105,8 @@ function drawMainEnvironment() {
     drawAvatarGroupObject(screenObjects.find(element => element.name === 'avatarObjectBigGroup2'));
 
     drawAvatarWorldObject(screenObjects.find(element => element.name === 'avatarObjectWorld'));
+
+    
 
     
 }

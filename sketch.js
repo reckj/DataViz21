@@ -23,6 +23,10 @@ function draw() {
       calculateObjects();
       updateObjects();
       drawMainScreen();
+      if (screenObjects.find(element => element.name === 'messageObject').state == 'active') {
+        drawMessageObject(screenObjects.find(element => element.name === 'messageObject'));
+        console.log('draw message');
+      }
       break;
 
     case 2:
@@ -39,5 +43,22 @@ function draw() {
 
 function touchMoved() {
   // is flag touchPossible true?
+  screenObjects.find(element => element.name === 'messageObject').pos = [mouseX - screenObjects.find(element => element.name === 'messageObject').size[0]/2,
+    mouseY - screenObjects.find(element => element.name === 'messageObject').size[1]/2];
 }
 
+function touchStarted() {
+  screenObjects.find(element => element.name === 'messageObject').pos = [mouseX - screenObjects.find(element => element.name === 'messageObject').size[0]/2,
+    mouseY - screenObjects.find(element => element.name === 'messageObject').size[1]/2];
+    
+  screenObjects.forEach(function (object) {
+    if (object.touchable == true) {
+      checkObjectCollision(object);
+      screenObjects.find(element => element.name === 'messageObject').state = 'active';
+    }
+  })
+}
+
+function touchEnded() {
+  screenObjects.find(element => element.name === 'messageObject').state = 'passive';
+}
