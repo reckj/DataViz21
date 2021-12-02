@@ -61,7 +61,8 @@ function touchStarted() {
 
 function touchEnded() {
   screenObjects.forEach(function (object) {
-    if (object.name == 'senderImageObject' || object.name == 'senderVideoObject' || object.name == 'senderTextObject' || object.name == 'senderVoiceObject') {
+    if (object.name == 'senderObjectAvatar1' || object.name == 'senderObjectAvatar2' || object.name == 'senderObjectAvatar3' || object.name == 'senderObjectAvatar4' ||
+    object.name == 'senderObjectGroup1' || object.name == 'senderObjectGroup2' || object.name == 'senderObjectGroup3' || object.name == 'senderObjectGroup4' || object.name == 'senderObjectWorld') {
       checkObjectCollision(object);
       screenObjects.find(element => element.name === 'messageObject').state = 'passive';
     }

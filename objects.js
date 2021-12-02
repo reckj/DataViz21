@@ -184,8 +184,8 @@ screenObjects.push({
 
 screenObjects.push({
   name: 'avatarObjectWorld',
-  pos: [(screenWidth * (0/48)),(screenHeight * (0/27))],
-  size: [(screenWidth * (48/48)),(screenHeight * (3/27))],
+  pos: [(screenWidth * (18/48)),(screenHeight * (0/27))],
+  size: [(screenWidth * (12/48)),(screenHeight * (12/27))],
   screenName: 'Social Media',
   groupSize: 999,
   dataSize: 0,
@@ -221,7 +221,7 @@ screenObjects.push({
 
 screenObjects.push({
   name: 'serverObject',
-  pos: [(screenWidth * (2/48)),(screenHeight * (14/27))],
+  pos: [(screenWidth * (8/48)),(screenHeight * (10/27))],
   size: [(screenWidth * (44/48)),(screenHeight * (4/27))],
   screenName: 'Internet Traffic',
   touchable: true,
@@ -239,37 +239,79 @@ screenObjects.push({
 
 
 screenObjects.push({
-  name: 'senderImageObject',
+  name: 'senderObjectAvatar1',
   pos: [screenWidth * (9/48), screenHeight * (20/27)],
   size: [(screenWidth * (2/48)),(screenHeight * (2/27))],
-  screenName: 'Image Sender',
+  screenName: 'Avatar1 Sender',
   touchable: false,
 })
 
 
 screenObjects.push({
-  name: 'senderVideoObject',
+  name: 'senderObjectAvatar2',
   pos: [screenWidth * (19/48), screenHeight * (20/27)],
   size: [(screenWidth * (2/48)),(screenHeight * (2/27))],
-  screenName: 'Video Sender',
+  screenName: 'Avatar Sender2',
   touchable: false,
 })
 
 screenObjects.push({
-  name: 'senderTextObject',
+  name: 'senderObjectAvatar3',
   pos: [screenWidth * (29/48), screenHeight * (20/27)],
   size: [(screenWidth * (2/48)),(screenHeight * (2/27))],
-  screenName: 'Text Sender',
+  screenName: 'Avatar Sender3',
   touchable: false,
 })
 
 screenObjects.push({
-  name: 'senderVoiceObject',
+  name: 'senderObjectAvatar4',
   pos: [screenWidth * (39/48), screenHeight * (20/27)],
   size: [(screenWidth * (2/48)),(screenHeight * (2/27))],
-  screenName: 'Voice Sender',
+  screenName: 'Avatar Sender4',
   touchable: false,
 })
+
+screenObjects.push({
+  name: 'senderObjectGroup1',
+  pos: [screenWidth * (11/48), screenHeight * (22/27)],
+  size: [(screenWidth * (2/48)),(screenHeight * (2/27))],
+  screenName: 'Group Sender1',
+  touchable: false,
+})
+
+screenObjects.push({
+  name: 'senderObjectGroup2',
+  pos: [screenWidth * (16/48), screenHeight * (19/27)],
+  size: [(screenWidth * (2/48)),(screenHeight * (2/27))],
+  screenName: 'Group Sender2',
+  touchable: false,
+})
+
+screenObjects.push({
+  name: 'senderObjectGroup3',
+  pos: [screenWidth * (26/48), screenHeight * (21/27)],
+  size: [(screenWidth * (2/48)),(screenHeight * (2/27))],
+  screenName: 'Group Sender3',
+  touchable: false,
+})
+
+screenObjects.push({
+  name: 'senderObjectGroup4',
+  pos: [screenWidth * (32/48), screenHeight * (22/27)],
+  size: [(screenWidth * (2/48)),(screenHeight * (2/27))],
+  screenName: 'Group Sender4',
+  touchable: false,
+})
+
+screenObjects.push({
+  name: 'senderObjectWorld',
+  pos: [screenWidth * (23/48), screenHeight * (19/27)],
+  size: [(screenWidth * (2/48)),(screenHeight * (2/27))],
+  screenName: 'World Sender1',
+  touchable: false,
+})
+
+
 
 screenObjects.push({
   name: 'personalImpactObject',

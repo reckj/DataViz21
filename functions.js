@@ -8,8 +8,40 @@ function checkObjectCollision(object) {
             console.log(activeDataWeight);
         }
         switch (object.name) {
-            case 'senderImageObject':
+            case 'senderObjectAvatar1':
               screenObjects.find(element => element.name === 'avatarObjectPerson1').state = 'active';
+            break;
+
+            case 'senderObjectAvatar2':
+              screenObjects.find(element => element.name === 'avatarObjectPerson2').state = 'active';
+            break;
+
+            case 'senderObjectAvatar3':
+              screenObjects.find(element => element.name === 'avatarObjectPerson3').state = 'active';
+            break;
+
+            case 'senderObjectAvatar4':
+              screenObjects.find(element => element.name === 'avatarObjectPerson4').state = 'active';
+            break;
+
+            case 'senderObjectGroup1':
+              screenObjects.find(element => element.name === 'avatarObjectSmallGroup1').state = 'active';
+            break;
+
+            case 'senderObjectGroup2':
+              screenObjects.find(element => element.name === 'avatarObjectSmallGroup2').state = 'active';
+            break;
+
+            case 'senderObjectGroup3':
+              screenObjects.find(element => element.name === 'avatarObjectBigGroup1').state = 'active';
+            break;
+
+            case 'senderObjectGroup4':
+              screenObjects.find(element => element.name === 'avatarObjectBigGroup2').state = 'active';
+            break;
+
+            case 'senderObjectWorld':
+              screenObjects.find(element => element.name === 'avatarObjectWorld').state = 'active';
             break;
         }
     }
@@ -22,17 +54,6 @@ function animatedMovement(startposition, endposition, speed, movementType) {
     //movementTypes -> arc, line, bezier
 }
 
-/*
-//calculate data values for all screen objects
-function calculateObjects() {
-    // check only objects we have an interest in:
-    // e.g. filter for icons
-    const filteredObjects = screenObjects.filter(object => {
-        return object.type === 'icon'
-    })
-    */
-
-    //filteredObjects.forEach
 
 function calculateObjects() {
     screenObjects.forEach(function (object) {
@@ -87,11 +108,18 @@ function drawMainEnvironment() {
 
     drawServerObject(screenObjects.find(element => element.name === 'serverObject'));
 
-    drawSenderObject(screenObjects.find(element => element.name === 'senderImageObject'));
-    drawSenderObject(screenObjects.find(element => element.name === 'senderVideoObject'));
-    drawSenderObject(screenObjects.find(element => element.name === 'senderTextObject'));
-    drawSenderObject(screenObjects.find(element => element.name === 'senderVoiceObject'));
+    drawAvatarWorldObject(screenObjects.find(element => element.name === 'avatarObjectWorld'));
+    drawWorldSenderObject(screenObjects.find(element => element.name === 'senderObjectWorld'));
 
+    drawAvatarSenderObject(screenObjects.find(element => element.name === 'senderObjectAvatar1'));
+    drawAvatarSenderObject(screenObjects.find(element => element.name === 'senderObjectAvatar2'));
+    drawAvatarSenderObject(screenObjects.find(element => element.name === 'senderObjectAvatar3'));
+    drawAvatarSenderObject(screenObjects.find(element => element.name === 'senderObjectAvatar4'));
+
+    drawGroupSenderObject(screenObjects.find(element => element.name === 'senderObjectGroup1'));
+    drawGroupSenderObject(screenObjects.find(element => element.name === 'senderObjectGroup2'));
+    drawGroupSenderObject(screenObjects.find(element => element.name === 'senderObjectGroup3'));
+    drawGroupSenderObject(screenObjects.find(element => element.name === 'senderObjectGroup4'));
 
     drawEmissionObject(screenObjects.find(element => element.name === 'emissionObjectCO2'));
     drawEmissionObject(screenObjects.find(element => element.name === 'emissionObjectWater'));
@@ -112,7 +140,6 @@ function drawMainEnvironment() {
     drawAvatarGroupObject(screenObjects.find(element => element.name === 'avatarObjectBigGroup1'));
     drawAvatarGroupObject(screenObjects.find(element => element.name === 'avatarObjectBigGroup2'));
 
-    drawAvatarWorldObject(screenObjects.find(element => element.name === 'avatarObjectWorld'));
 
     drawPersonalImpactObject(screenObjects.find(element => element.name === 'personalImpactObject'));
 

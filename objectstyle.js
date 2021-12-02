@@ -1,5 +1,12 @@
 //draw functions for objects
 
+//load image assets
+let serverImg;
+
+function preload() {
+    serverImg = loadImage('assets/server.png');
+}
+
 //gets Media Object to be drawn
 function drawMediaObject(object) {
     //draw Media Object based on object parameters
@@ -17,9 +24,9 @@ function drawAvatarPersonObject(object) {
     fill(avatarPersonColor);
     noStroke();
     rect(object.pos[0], object.pos[1], object.size[0], object.size[1]);
-    textSize(22);
+    textSize(maintextsize);
     fill(0);
-    text(object.dataSize, object.pos[0], object.pos[1]);
+    text(object.dataSize.toFixed(1), object.pos[0], object.pos[1]);
 }
 
 function drawAvatarGroupObject(object) {
@@ -27,19 +34,20 @@ function drawAvatarGroupObject(object) {
     noStroke();
     //circle(object.pos[0] + object.size[0], object.pos[1] + object.size[0], object.size[0], object.size[1]);
     rect(object.pos[0], object.pos[1], object.size[0], object.size[1]);
-    textSize(22);
+    textSize(maintextsize);
     fill(0);
-    text(object.dataSize, object.pos[0], object.pos[1]);
+    text(object.dataSize.toFixed(1), object.pos[0], object.pos[1]);
 }
 
 function drawAvatarWorldObject(object) {
     rectMode(CORNER);
     noStroke();
     fill(avatarWorldColor);
-    rect(object.pos[0], object.pos[1], object.size[0], object.size[1]);
-    textSize(22);
+    circle(object.pos[0] + object.size[0] / 2, object.pos[1] + object.size[0] / 2, object.size[0]);
+    textSize(maintextsize);
     fill(0);
-    text(object.screenName, object.pos[0], object.pos[1] + object.size[1] / 2);
+    text(object.screenName, object.pos[0] + object.size[0] * 3 / 10, object.pos[1] + object.size[1] * 1 / 10);
+    text(object.dataSize.toFixed(1), object.pos[0], object.pos[1] + object.size[1] * 5 / 10);
 }
 
 function drawEmissionObject(object) {
@@ -47,17 +55,21 @@ function drawEmissionObject(object) {
     noStroke();
     fill(emissionColor);
     rect(object.pos[0], object.pos[1], object.size[0], object.size[1]);
-    textSize(14);
+    textSize(maintextsize);
     fill(0);
     text(object.screenName, object.pos[0], object.pos[1] + object.size[1] / 2);
 }
 
 function drawServerObject(object) {
+    /*
     rectMode(CORNER);
     noStroke();
     fill(0);
     rect(object.pos[0], object.pos[1], object.size[0], object.size[1]);
-    textSize(14);
+    */
+
+    image(serverImg, object.pos[0], object.pos[1], serverImg.width / screenScaler, serverImg.height / screenScaler);
+    textSize(maintextsize);
     fill(0);
     text(object.screenName, object.pos[0], object.pos[1] + object.size[1] / 2);
 }
@@ -69,10 +81,24 @@ function drawMessageObject(object) {
     rect(object.pos[0], object.pos[1], object.size[0], object.size[1]);
 }
 
-function drawSenderObject(object) {
+function drawAvatarSenderObject(object) {
     rectMode(CORNER);
     noStroke();
-    fill(senderColor);
+    fill(avatarSenderColor);
+    rect(object.pos[0], object.pos[1], object.size[0], object.size[1]);
+}
+
+function drawGroupSenderObject(object) {
+    rectMode(CORNER);
+    noStroke();
+    fill(groupSenderColor);
+    rect(object.pos[0], object.pos[1], object.size[0], object.size[1]);
+}
+
+function drawWorldSenderObject(object) {
+    rectMode(CORNER);
+    noStroke();
+    fill(worldSenderColor);
     rect(object.pos[0], object.pos[1], object.size[0], object.size[1]);
 }
 
@@ -94,10 +120,10 @@ function drawPersonalImpactObject(object) {
     noStroke();
     fill(0);
     rect(object.pos[0], object.pos[1], object.size[0], object.size[1]);
-    textSize(14);
+    textSize(maintextsize);
     fill(255);
     text(object.screenName, object.pos[0], object.pos[1] + object.size[1] * 1 / 10);
-    text('CO2: ' + dataPersonalImpactObject.co2, object.pos[0], object.pos[1] + object.size[1] * 2 / 10);
-    text('Water: ' + dataPersonalImpactObject.water, object.pos[0], object.pos[1] + object.size[1] * 3 / 10);
-    text('Land: ' + dataPersonalImpactObject.land, object.pos[0], object.pos[1] + object.size[1] * 4 / 10);
+    text('CO2: ' + dataPersonalImpactObject.co2.toFixed(4) + ' g', object.pos[0], object.pos[1] + object.size[1] * 2 / 10);
+    text('Water: ' + dataPersonalImpactObject.water.toFixed(4) + ' l', object.pos[0], object.pos[1] + object.size[1] * 3 / 10);
+    text('Land: ' + dataPersonalImpactObject.land.toFixed(4) + ' m^2', object.pos[0], object.pos[1] + object.size[1] * 4 / 10);
 }
