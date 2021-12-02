@@ -38,6 +38,7 @@ const dataPersonalImpactObject = {
   numberVideo: 0,
   numberText: 0,
   numberVoice: 0,
+  dataSize: 0,
 }
 
 //Data Object for Comparison
@@ -57,7 +58,7 @@ screenObjects.push({
   size: [(screenWidth * (2/48)),(screenHeight * (2/27))],
   screenName: 'Image',
   dataWeight: 5,
-  state: 'active',
+  state: 'passive',
   touchable: true,
 })
 
@@ -94,18 +95,18 @@ screenObjects.push({
 
 screenObjects.push({
   name: 'avatarObjectPerson1',
-  pos: [(screenWidth * (5/48)),(screenHeight * (17/27))],
+  pos: [(screenWidth * (5/48)),(screenHeight * (12/27))],
   size: [(screenWidth * (2/48)),(screenHeight * (2/27))],
   screenName: 'Mica',
   groupSize: 1,
   dataSize: 0,
-  state: 'active',
+  state: 'passive',
   touchable: false,
 })
 
 screenObjects.push({
   name: 'avatarObjectPerson2',
-  pos: [(screenWidth * (18/48)),(screenHeight * (17/27))],
+  pos: [(screenWidth * (18/48)),(screenHeight * (12/27))],
   size: [(screenWidth * (2/48)),(screenHeight * (2/27))],
   screenName: 'Elena',
   groupSize: 1,
@@ -116,7 +117,7 @@ screenObjects.push({
 
 screenObjects.push({
   name: 'avatarObjectPerson3',
-  pos: [(screenWidth * (33/48)),(screenHeight * (17/27))],
+  pos: [(screenWidth * (33/48)),(screenHeight * (12/27))],
   size: [(screenWidth * (2/48)),(screenHeight * (2/27))],
   screenName: 'Johannes',
   groupSize: 1,
@@ -127,7 +128,7 @@ screenObjects.push({
 
 screenObjects.push({
   name: 'avatarObjectPerson4',
-  pos: [(screenWidth * (42/48)),(screenHeight * (17/27))],
+  pos: [(screenWidth * (42/48)),(screenHeight * (12/27))],
   size: [(screenWidth * (2/48)),(screenHeight * (2/27))],
   screenName: 'Janosch',
   groupSize: 1,
@@ -240,7 +241,7 @@ screenObjects.push({
 screenObjects.push({
   name: 'senderImageObject',
   pos: [screenWidth * (9/48), screenHeight * (20/27)],
-  size: [(screenWidth * (3/48)),(screenHeight * (3/27))],
+  size: [(screenWidth * (2/48)),(screenHeight * (2/27))],
   screenName: 'Image Sender',
   touchable: false,
 })
@@ -249,7 +250,7 @@ screenObjects.push({
 screenObjects.push({
   name: 'senderVideoObject',
   pos: [screenWidth * (19/48), screenHeight * (20/27)],
-  size: [(screenWidth * (3/48)),(screenHeight * (3/27))],
+  size: [(screenWidth * (2/48)),(screenHeight * (2/27))],
   screenName: 'Video Sender',
   touchable: false,
 })
@@ -257,7 +258,7 @@ screenObjects.push({
 screenObjects.push({
   name: 'senderTextObject',
   pos: [screenWidth * (29/48), screenHeight * (20/27)],
-  size: [(screenWidth * (3/48)),(screenHeight * (3/27))],
+  size: [(screenWidth * (2/48)),(screenHeight * (2/27))],
   screenName: 'Text Sender',
   touchable: false,
 })
@@ -265,7 +266,15 @@ screenObjects.push({
 screenObjects.push({
   name: 'senderVoiceObject',
   pos: [screenWidth * (39/48), screenHeight * (20/27)],
-  size: [(screenWidth * (3/48)),(screenHeight * (3/27))],
+  size: [(screenWidth * (2/48)),(screenHeight * (2/27))],
   screenName: 'Voice Sender',
+  touchable: false,
+})
+
+screenObjects.push({
+  name: 'personalImpactObject',
+  pos: [screenWidth * (44/48), screenHeight * (21/27)],
+  size: [(screenWidth * (4/48)),(screenHeight * (6/27))],
+  screenName: 'Personal Impact',
   touchable: false,
 })

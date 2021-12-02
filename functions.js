@@ -3,7 +3,15 @@ function checkObjectCollision(object) {
     //all the things happening when touching objects
     if (mouseX > object.pos[0] && mouseX < object.pos[0] + object.size[0] && mouseY > object.pos[1] && mouseY < object.pos[1] + object.size[1]) {
         console.log('over object: ' + object.screenName);
-        activeDataWeight = object.dataWeight;
+        if(object.name == 'mediaObjectImage' || object.name == 'mediaObjectVideo' || object.name == 'mediaObjectText' || object.name == 'mediaObjectVoice') {
+            activeDataWeight = object.dataWeight;
+            console.log(activeDataWeight);
+        }
+        switch (object.name) {
+            case 'senderImageObject':
+              screenObjects.find(element => element.name === 'avatarObjectPerson1').state = 'active';
+            break;
+        }
     }
 }
 
@@ -105,6 +113,8 @@ function drawMainEnvironment() {
     drawAvatarGroupObject(screenObjects.find(element => element.name === 'avatarObjectBigGroup2'));
 
     drawAvatarWorldObject(screenObjects.find(element => element.name === 'avatarObjectWorld'));
+
+    drawPersonalImpactObject(screenObjects.find(element => element.name === 'personalImpactObject'));
 
     
 

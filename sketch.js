@@ -25,7 +25,7 @@ function draw() {
       drawMainScreen();
       if (screenObjects.find(element => element.name === 'messageObject').state == 'active') {
         drawMessageObject(screenObjects.find(element => element.name === 'messageObject'));
-        console.log('draw message');
+        
       }
       break;
 
@@ -50,7 +50,7 @@ function touchMoved() {
 function touchStarted() {
   screenObjects.find(element => element.name === 'messageObject').pos = [mouseX - screenObjects.find(element => element.name === 'messageObject').size[0]/2,
     mouseY - screenObjects.find(element => element.name === 'messageObject').size[1]/2];
-    
+
   screenObjects.forEach(function (object) {
     if (object.touchable == true) {
       checkObjectCollision(object);
@@ -60,5 +60,10 @@ function touchStarted() {
 }
 
 function touchEnded() {
-  screenObjects.find(element => element.name === 'messageObject').state = 'passive';
+  screenObjects.forEach(function (object) {
+    if (object.name == 'senderImageObject' || object.name == 'senderVideoObject' || object.name == 'senderTextObject' || object.name == 'senderVoiceObject') {
+      checkObjectCollision(object);
+      screenObjects.find(element => element.name === 'messageObject').state = 'passive';
+    }
+  })
 }

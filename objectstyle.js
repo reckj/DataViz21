@@ -88,3 +88,16 @@ function drawGrid(){
 		}
 	}
 }
+
+function drawPersonalImpactObject(object) {
+    rectMode(CORNER);
+    noStroke();
+    fill(0);
+    rect(object.pos[0], object.pos[1], object.size[0], object.size[1]);
+    textSize(14);
+    fill(255);
+    text(object.screenName, object.pos[0], object.pos[1] + object.size[1] * 1 / 10);
+    text('CO2: ' + dataPersonalImpactObject.co2, object.pos[0], object.pos[1] + object.size[1] * 2 / 10);
+    text('Water: ' + dataPersonalImpactObject.water, object.pos[0], object.pos[1] + object.size[1] * 3 / 10);
+    text('Land: ' + dataPersonalImpactObject.land, object.pos[0], object.pos[1] + object.size[1] * 4 / 10);
+}
