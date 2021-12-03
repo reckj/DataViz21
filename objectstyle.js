@@ -26,32 +26,10 @@ function preload() {
 //gets Media Object to be drawn
 function drawMediaObject(object) {
     //draw Media Object based on object parameters
-
     //start with Rect wireframe style as placeholder
     rectMode(CORNER);
     noStroke();
     fill(mediaColor);
-    //rect(object.pos[0], object.pos[1], object.size[0], object.size[1]);
-    //circle(object.pos[0] + object.size[0] / 2, object.pos[1] + object.size[0] / 2, object.size[0]);
-    /*
-    switch (object.pathName) {
-        case 'imageIconImg':
-            image(imageIconImg, object.pos[0], object.pos[1],imageIconImg.width / screenScaler, imageIconImg.height / screenScaler);
-        break;
-
-        case 'videoIconImg':
-            image(videoIconImg, object.pos[0], object.pos[1],videoIconImg.width / screenScaler, videoIconImg.height / screenScaler);
-        break;
-
-        case 'textIconImg':
-            image(textIconImg, object.pos[0], object.pos[1],textIconImg.width / screenScaler, textIconImg.height / screenScaler);
-        break;
-
-        case 'voiceIconImg':
-            image(voiceIconImg, object.pos[0], object.pos[1],voiceIconImg.width / screenScaler, voiceIconImg.height / screenScaler);
-        break;
-    }
-    */
 }
 
 function drawBottomBars() {
@@ -72,9 +50,21 @@ function drawAvatarPersonObject(object) {
 }
 
 function drawAvatarGroupObject(object) {
-    fill(avatarGroupColor);
+    switch (object.name) {
+        case 'avatarObjectSmallGroup1':
+            fill('#00B36A');
+            break;
+        case 'avatarObjectSmallGroup2':
+            fill('#4485FF');
+            break;
+        case 'avatarObjectBigGroup1':
+            fill('#FF511B');
+            break;
+        case 'avatarObjectBigGroup2':
+            fill('#AD8DFF');   
+            break;
+    }
     noStroke();
-    //circle(object.pos[0] + object.size[0], object.pos[1] + object.size[0], object.size[0], object.size[1]);
     rect(object.pos[0], object.pos[1] - maintextsize, object.size[0], maintextsize);
     textSize(maintextsize);
     fill(0);
@@ -85,51 +75,25 @@ function drawAvatarWorldObject(object) {
     rectMode(CORNER);
     noStroke();
     fill(avatarWorldColor);
-    /*
-    circle(object.pos[0] + object.size[0] / 2, object.pos[1] + object.size[0] / 2, object.size[0]);
-    textSize(maintextsize);
-    fill(0);
-    text(object.screenName, object.pos[0] + object.size[0] * 3 / 10, object.pos[1] + object.size[1] * 1 / 10);
-    text(object.dataSize.toFixed(1), object.pos[0], object.pos[1] + object.size[1] * 5 / 10);
-    */
     textSize(maintextsize);
     fill(0);
     text(object.dataSize.toFixed(1), object.pos[0] + object.pos[0] * 11 / 100, object.pos[1] - object.pos[1] * 65 / 100);
 }
 
 function drawEmissionObject(object) {
-    /*
-    rectMode(CORNER);
-    noStroke();
-    fill(emissionColor);
-    rect(object.pos[0], object.pos[1], object.size[0], object.size[1]);
-    textSize(maintextsize);
-    fill(0);
-    text(object.screenName, object.pos[0], object.pos[1] + object.size[1] / 2);
-    */
     image(emissionImg, object.pos[0], object.pos[1], emissionImg.width / screenScaler, emissionImg.height / screenScaler);
 }
 
 function drawServerObject(object) {
-    /*
-    rectMode(CORNER);
-    noStroke();
-    fill(0);
-    rect(object.pos[0], object.pos[1], object.size[0], object.size[1]);
-    */
-
     image(serverImg, object.pos[0], object.pos[1], serverImg.width / screenScaler, serverImg.height / screenScaler);
     textSize(maintextsize);
     fill(0);
-    //text(object.screenName, object.pos[0], object.pos[1] + object.size[1] / 2);
 }
 
 function drawMessageObject(object) {
     rectMode(CORNER);
     noStroke();
     fill(messageColor);
-    //rect(object.pos[0], object.pos[1], object.size[0], object.size[1]);
-
     image(messageIconImg, object.pos[0], object.pos[1], object.size[0], object.size[1]);
 }
 

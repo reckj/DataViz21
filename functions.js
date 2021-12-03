@@ -56,7 +56,6 @@ function animatedMovement(startposition, endposition, speed, movementType) {
     //movementTypes -> arc, line, bezier
 }
 
-//&& (object.name == 'mediaObjectImage' || object.name == 'mediaObjectVideo' || object.name == 'mediaObjectText' || object.name == 'mediaObjectVoice')
 function calculateObjects() {
     screenObjects.forEach(function (object) {
         if (object.state == 'active') {
