@@ -65,6 +65,7 @@ function touchEnded() {
     object.name == 'senderObjectGroup1' || object.name == 'senderObjectGroup2' || object.name == 'senderObjectGroup3' || object.name == 'senderObjectGroup4' || object.name == 'senderObjectWorld') {
       checkObjectCollision(object);
       screenObjects.find(element => element.name === 'messageObject').state = 'passive';
+      //activeDataWeight = 0;
     }
   })
 }

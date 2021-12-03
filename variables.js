@@ -15,7 +15,7 @@ let state = 1; //states: 0 = start / 1 = running / 2 = info / 3 = end
 let activeDataWeight = 10;
 
 //textsize
-let maintextsize = 35;
+let maintextsize = 35 / screenScaler;
 
 //colors for wireframe
 let mediaColor = 0;

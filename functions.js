@@ -3,9 +3,11 @@ function checkObjectCollision(object) {
     //all the things happening when touching objects
     if (mouseX > object.pos[0] && mouseX < object.pos[0] + object.size[0] && mouseY > object.pos[1] && mouseY < object.pos[1] + object.size[1]) {
         console.log('over object: ' + object.screenName);
-        if(object.name == 'mediaObjectImage' || object.name == 'mediaObjectVideo' || object.name == 'mediaObjectText' || object.name == 'mediaObjectVoice') {
+        if(object.name === 'mediaObjectImage' || object.name === 'mediaObjectVideo' || object.name === 'mediaObjectText' || object.name === 'mediaObjectVoice') {
             activeDataWeight = object.dataWeight;
             console.log(activeDataWeight);
+            object.state = 'active';
+
         }
         switch (object.name) {
             case 'senderObjectAvatar1':
@@ -54,32 +56,36 @@ function animatedMovement(startposition, endposition, speed, movementType) {
     //movementTypes -> arc, line, bezier
 }
 
-
+//&& (object.name == 'mediaObjectImage' || object.name == 'mediaObjectVideo' || object.name == 'mediaObjectText' || object.name == 'mediaObjectVoice')
 function calculateObjects() {
     screenObjects.forEach(function (object) {
-        if (object.state == 'active' && (object.name == 'mediaObjectImage' || object.name == 'mediaObjectVideo' || object.name == 'mediaObjectText' || object.name == 'mediaObjectVoice')) {
-            switch (object.name) {
+        if (object.state == 'active') {
+          switch (object.name) {
                 case 'mediaObjectImage':
                     dataPersonalImpactObject.numberImage = dataPersonalImpactObject.numberImage + 1;
                     console.log(object.name + ': ' + dataPersonalImpactObject.numberImage);
+                    object.state = 'passive';
                 break;
                 
                 case 'mediaObjectVideo':
                     dataPersonalImpactObject.numberVideo = dataPersonalImpactObject.numberVideo + 1;
                     console.log(object.name + ': ' + dataPersonalImpactObject.numberVideo);
+                    object.state = 'passive';
                 break;
 
                 case 'mediaObjectText':
                     dataPersonalImpactObject.numberText = dataPersonalImpactObject.numberText + 1;
                     console.log(object.name + ': ' + dataPersonalImpactObject.numberText);
+                    object.state = 'passive';
                 break;
 
                 case 'mediaObjectVoice':
                     dataPersonalImpactObject.numberVoice = dataPersonalImpactObject.numberVoice + 1;
                     console.log(object.name + ': ' + dataPersonalImpactObject.numberVoice);
+                    object.state = 'passive';
                 break;
             }
-            object.state = 'passive'; 
+             
         }
 
         if (object.state == 'active' && object.name != 'mediaObjectImage' && object.name != 'mediaObjectVideo' && object.name != 'mediaObjectText' && object.name != 'mediaObjectVoice' && object.name != 'messageObject'){
@@ -87,8 +93,15 @@ function calculateObjects() {
             dataPersonalImpactObject.co2 = dataPersonalImpactObject.co2 + activeDataWeight * dataCalculationObject.co2Factor;
             dataPersonalImpactObject.water = dataPersonalImpactObject.water + activeDataWeight * dataCalculationObject.waterFactor;
             dataPersonalImpactObject.land = dataPersonalImpactObject.land + activeDataWeight * dataCalculationObject.landFactor;
+            if (object.name == 'avatarObjectWorld'){
+              dataPersonalImpactObject.dataSize = dataPersonalImpactObject.dataSize + activeDataWeight;
+            }
+            else {
+              dataPersonalImpactObject.dataSize = dataPersonalImpactObject.dataSize + activeDataWeight * object.groupSize;
+            }
             object.state = 'passive';
             console.log(object.name + ' datasize: ' + object.dataSize);
+            activeDataWeight = 0;
         }
     })
 }
@@ -104,9 +117,11 @@ function updateMainEnvironment() {
 
 function drawMainEnvironment() {
     clear();
-    drawGrid();
+    //drawGrid();
+    drawEntireScreen();
 
-    drawServerObject(screenObjects.find(element => element.name === 'serverObject'));
+    //drawServerObject(screenObjects.find(element => element.name === 'serverObject'));
+    //drawBottomBars();
 
     drawAvatarWorldObject(screenObjects.find(element => element.name === 'avatarObjectWorld'));
     drawWorldSenderObject(screenObjects.find(element => element.name === 'senderObjectWorld'));
@@ -121,9 +136,9 @@ function drawMainEnvironment() {
     drawGroupSenderObject(screenObjects.find(element => element.name === 'senderObjectGroup3'));
     drawGroupSenderObject(screenObjects.find(element => element.name === 'senderObjectGroup4'));
 
-    drawEmissionObject(screenObjects.find(element => element.name === 'emissionObjectCO2'));
-    drawEmissionObject(screenObjects.find(element => element.name === 'emissionObjectWater'));
-    drawEmissionObject(screenObjects.find(element => element.name === 'emissionObjectLand'));
+    //drawEmissionObject(screenObjects.find(element => element.name === 'emissionObjectCO2'));
+    //drawEmissionObject(screenObjects.find(element => element.name === 'emissionObjectWater'));
+    //drawEmissionObject(screenObjects.find(element => element.name === 'emissionObjectLand'));
 
     drawMediaObject(screenObjects.find(element => element.name === 'mediaObjectImage'));
     drawMediaObject(screenObjects.find(element => element.name === 'mediaObjectVideo'));
