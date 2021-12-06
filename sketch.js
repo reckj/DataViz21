@@ -1,6 +1,5 @@
 //P5 MAIN SKETCH
 function setup() {
-  //createCanvas(window.innerWidth, window.innerHeight);
   createCanvas(screenWidth, screenHeight);
   let backgroundColor = '#ffffff';
   background(backgroundColor);
@@ -11,7 +10,7 @@ function setup() {
   strokeWeight(5);
   rect(0, 0, screenWidth, screenHeight);
 }
-
+//
 
 function draw() {
   switch (state) {
